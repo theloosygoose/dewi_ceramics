@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+html{
+    background: #F0EFE9;
+    overflow-x: hidden;
+}
+
+h1{
+    font-size: 48px;
+    font-weight: 800;
+}
+
+/* Main Section Styling */
+div.container{
+    display: grid;
+}
+
+.grn {
+    background-color: #4A8E5C;
+}
+.purp{
+    background-color: #8E4A7C;
+}
+
+.dark{
+    background-color: #273134;
+}
+.tan-light{
+    background-color: #B2895A;
+}

@@ -1,0 +1,19 @@
+.ticker{
+    overflow: hidden;
+    margin: 10px 0px 10px 0px;
+}
+
+.ticker span{
+    display: flex;
+    justify-content: center;
+}
+
+.ticker span img{
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    height: 65px;
+    width: 65px;
+    box-sizing: border-box;
+    margin: 0px 10px 0px 10px;
+}
+

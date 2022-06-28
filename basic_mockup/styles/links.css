@@ -1,0 +1,23 @@
+nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav a {
+   padding: 5px 0px; 
+   margin: 5px 0px 5px 0px;
+   width: 100%;
+   text-align: center;
+
+   color: #F0EFE9;
+   font-style: none;
+   text-decoration: none;
+
+   font-size: 45px;
+   font-weight: 800;
+}
+
+nav a:hover{
+}
+

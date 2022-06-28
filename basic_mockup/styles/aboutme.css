@@ -1,0 +1,10 @@
+.about{
+    display: flex;
+    justify-content: center;
+    background-color: #4A8E5C;
+    color:#F0EFE9;
+}
+
+.about img{
+    width: 50vw;
+}

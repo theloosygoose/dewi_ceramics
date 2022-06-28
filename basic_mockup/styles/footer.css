@@ -1,0 +1,18 @@
+footer {
+    background-color: #273134;
+    padding: 20px 10px 10px 10px;
+}
+
+.credits{
+    color: white;
+    font-size: 12px;
+    line-height: 100%;
+    padding: 5px;
+}
+
+.credits img{
+    margin-bottom: 2px;
+}
+.social-links{
+    padding: 5px;
+}
