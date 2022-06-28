@@ -1,10 +1,21 @@
 .about{
     display: flex;
     justify-content: center;
-    background-color: #4A8E5C;
+    background-color: #4a8e5c;
     color:#F0EFE9;
+
+    margin: 10px 0px 10px 0px;
 }
 
 .about img{
-    width: 50vw;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.about h1{
+    line-height: 100%; 
+    padding: 30px;
+    align-self: center;
+    text-align: center;
 }
