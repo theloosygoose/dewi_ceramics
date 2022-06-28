@@ -1,21 +1,33 @@
 .about{
-    display: flex;
-    justify-content: center;
+    display: grid;
+    
     background-color: #4a8e5c;
     color:#F0EFE9;
 
     margin: 10px 0px 10px 0px;
 }
 
-.about img{
+.img-wrapper{
     width: 100%;
-    max-width: 400px;
-    height: auto;
+    height: 200px;
+    background-image: url('/img/Profile\ Photo.png');
+    background-size: cover;
+}
+
+
+.about-text-wrapper{
+    margin: 20px 0px 20px 0px;
+    justify-self: center;
+    align-self: center;
 }
 
 .about h1{
-    line-height: 100%; 
-    padding: 30px;
-    align-self: center;
+    line-height: 100%;
     text-align: center;
+}
+
+@media screen and (min-width:400px){
+    .about{
+    grid-template-columns: 1fr 1fr;
+    }
 }
