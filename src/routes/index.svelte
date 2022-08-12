@@ -21,7 +21,7 @@
     </div>
 </a>
 <a href="/about">
-    <div class="mt-5 lg:bg-mywork-desktop-img bg-myworkd-mobile-img bg-no-repeat bg-cover bg-center min-h-[500px]">
+    <div class="mt-5 lg:bg-mywork-desktop-img bg-mywork-mobile-img bg-no-repeat bg-cover bg-center min-h-[500px]">
         <div class="bg-blue w-fit">
             <p class="font-extrabold italic py-2 px-6 text-5xl tracking-wide text-white">my work</p>
         </div>

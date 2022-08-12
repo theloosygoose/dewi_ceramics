@@ -221,3 +221,18 @@ export async function addToCart({cartId, variantId}:{cartId:string, variantId:st
         }
     })
 } 
+
+export async function getTags(){
+  return postToShopify({
+    query: `
+    {
+      productTags(first: 10) {
+        edges {
+          node
+        }
+      }
+    }
+  `,
+  variables: {}
+  })
+}

@@ -1,43 +1,17 @@
 <script lang="ts" context='module'>
-import { getAllProducts } from '$lib/utils/shopify';
-import type { Product, Products } from '$lib/types';
+import type { Load } from "@sveltejs/kit";
 
-export async function load() {
-    const res = await getAllProducts()
+export const load: Load = async ({ fetch }) => {
+    const response = await fetch('/api/products.json');
+    
+    const json_response = await response.json()
 
-    const products = await res.body.products.edges.map((product: 
-    { node: { 
-        id: any; 
-        title: any; 
-        handle: any; 
-        priceRange: { 
-            minVariantPrice: { 
-                amount: any; 
-            }; 
-        }; 
-        images: { 
-            edges: { 
-                node: { 
-                    src: any; 
-                }; 
-            }[]; 
-        }; 
-        tags: any; 
-    }; }):Product => {
-        return {
-            id: product.node.id,
-            title: product.node.title,
-            handle: product.node.handle,
-            price: product.node.priceRange.minVariantPrice.amount,
-            imageSrc: product.node.images.edges[0].node.src,
-            tags: product.node.tags
-        }
-    })
 
     return{
-        status: res.status,
+        status: response.status,
         props:{
-            products
+            products: await json_response.products,
+            tags: await json_response.tags
         }
     }
     
@@ -45,18 +19,37 @@ export async function load() {
 </script>
 
 <script lang="ts">
+import type { Products } from "$lib/types";
 
 export let products:Products;
-console.log(products)
+export let tags:any;
+
+let tagFilter = 'all products';
+
+let tagFilterHandler = () =>{
+
+}
 
 </script>
 
+<section class="bg-pottery-mobile-img bg-center bg-cover bg-no-repeat flex justify-center align-center">
+    <h2 class="my-20 bg-red text-white italic font-extrabold tracking-normal px-5 py-3 text-4xl">{tagFilter}</h2>
+</section>
+<section class="tags">
+    <div class="text-brown italic font-bold tracking-normal p-5 pb-2 text-lg">tags:</div>
+    <div class="flex-wrap">
+        {#each tags as tag}
+        <button class='text-center pl-2 pr-3 ml-2 mb-4 italic font-bold tracking-normal bg-{tag.color} text-white'>{tag.name}</button>
+        {/each}
+    </div>
+
+</section>
 
 {#each products as product}
 <div class="overflow-x-hidden">
     <p>{product.id}</p>
     <p>{product.title}</p>
-    <img class="h-20" src="{product.imageSrc}" alt="">
+    <img loading='lazy' class="h-20" src="{product.imageSrc}" alt="">
     <p>${product.price}</p>
 </div>
 {/each}

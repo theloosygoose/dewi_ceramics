@@ -8,6 +8,10 @@ module.exports = {
       'white': '#FFFFFF',
       'red': '#EF493F',
       'blue': '#5A85F1',
+      'green': '#58CB4E',
+      'magenta': '#D945C1',
+      'orange': '#FE794F',
+      'teal': '#49C1AC',
       'light-tan': '#E9E5D9',
       'grey': '#1E1E1E'
     },
@@ -43,6 +47,7 @@ module.exports = {
         'hero-desktop-img': "url('/images/hero.jpg')",
         'store-desktop-img': "url('/images/store.jpg')",
         'mywork-desktop-img': "url('/images/mywork.jpg')",
+        'pottery-mobile-img': "url('/images/pottery.png')",
       }
     },
   },
