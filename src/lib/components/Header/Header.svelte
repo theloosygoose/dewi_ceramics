@@ -1,10 +1,10 @@
 <script lang="ts">
-
+import Cart from "../Cart/Cart.svelte";
 </script>
 
-<header>
-
-
+<header class="flex">
+    <button>Menu</button>
+    <Cart/>
 </header>
 
 <style>
