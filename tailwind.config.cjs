@@ -37,9 +37,12 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'hero-img': "url('/images/hero-min.jpg')",
-        'store-img': "url('/images/store-min.jpg')",
-        'mywork-img': "url('/images/mywork-min.jpg')",
+        'hero-mobile-img': "url('/images/hero-min.jpg')",
+        'store-mobile-img': "url('/images/store-min.jpg')",
+        'mywork-mobile-img': "url('/images/mywork-min.jpg')",
+        'hero-desktop-img': "url('/images/hero.jpg')",
+        'store-desktop-img': "url('/images/store.jpg')",
+        'mywork-desktop-img': "url('/images/mywork.jpg')",
       }
     },
   },
