@@ -37,8 +37,9 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'hero-img': "url('./images/hero.png')",
-        'store-img': "url('./images/store.png')",
+        'hero-img': "url('./images/hero-min.jpg')",
+        'store-img': "url('./images/store-min.jpg')",
+        'mywork-img': "url('./images/mywork-min.jpg')",
       }
     },
   },
