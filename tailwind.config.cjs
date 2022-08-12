@@ -6,9 +6,10 @@ module.exports = {
       'brown': '#47291C',
       'tan': '#DDD6BE',
       'white': '#FFFFFF',
-      'red': 'EF493F',
-      'blue': '5A85F1',
-      'light-tan': 'E9E5D9'
+      'red': '#EF493F',
+      'blue': '#5A85F1',
+      'light-tan': '#E9E5D9',
+      'grey': '#1E1E1E'
     },
     letterSpacing: {
       normal: '-0.075em',
@@ -35,7 +36,10 @@ module.exports = {
       'pop': ['Poppins', 'sans-serif'],
     },
     extend: {
-
+      backgroundImage: {
+        'hero-img': "url('./images/hero.png')",
+        'store-img': "url('./images/store.png')",
+      }
     },
   },
   plugins: [],

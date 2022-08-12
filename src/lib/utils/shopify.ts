@@ -2,10 +2,10 @@
 
 export const postToShopify = async ({query, variables={}}: { query: string; variables: object;}) => {
     try {
-        const response = await fetch(`${process.env.URL}`, {
+        const response = await fetch(`${import.meta.env.VITE_URL}`, {
             method: 'POST',
             headers: {
-                'X-Shopify-Storefront-Access-Token':`${process.env.TOKEN}`,
+                'X-Shopify-Storefront-Access-Token':`${import.meta.env.VITE_TOKEN}`,
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({query, variables}),
@@ -13,7 +13,7 @@ export const postToShopify = async ({query, variables={}}: { query: string; vari
         .then((res) => res.json());
         return{
             status: response.status,
-            body: await response.data();
+            body: await response.data
         }
         
 
