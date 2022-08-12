@@ -1,7 +1,7 @@
 <script lang="ts">
-import CartCount from "./CartCount.svelte";
+
+let cartQuantity = 0;
 </script>
 
-<div>
-    <CartCount/>
-</div>
+<button class="tracking-normal font-extrabold text-brown text-xl text">Cart [{cartQuantity}]</button>
+

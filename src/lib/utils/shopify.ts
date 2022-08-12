@@ -220,5 +220,4 @@ export async function addToCart({cartId, variantId}:{cartId:string, variantId:st
             ]
         }
     })
-    
-}
+} 
