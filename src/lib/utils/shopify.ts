@@ -104,7 +104,7 @@ export async function loadCart(cartId:string) {
 export async function getProduct(handle:string) {
     return postToShopify({
         query:`
-        query getProduct($handle: ID!, $handle1: String = "") {
+        query getProduct($handle: String!) {
             product(handle: $handle) {
               availableForSale
               createdAt

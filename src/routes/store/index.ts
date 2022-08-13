@@ -1,8 +1,7 @@
-import type { RequestHandler } from "@sveltejs/kit";
 import { getAllProducts, getTypes } from '$lib/utils/shopify';
 import type { Product } from '$lib/types';
 
-export const GET: RequestHandler = async () => {
+export async function GET() {
     const res_products = await getAllProducts()
     const products = await res_products.body.products.edges.map((product: 
     { node: { 

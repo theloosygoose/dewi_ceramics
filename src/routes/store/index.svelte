@@ -1,29 +1,12 @@
-<script lang="ts" context='module'>
-import type { Load } from "@sveltejs/kit";
-
-export const load: Load = async ({ fetch }) => {
-    const response = await fetch('/api/products.json');
-    
-    const json_response = await response.json()
-
-
-    return{
-        status: response.status,
-        props:{
-            products: await json_response.products,
-            typesList: await json_response.typesList,
-        }
-    }
-    
-}
-</script>
 
 <script lang="ts">
-import type { Product, Products, TagType } from "$lib/types";
+import type { Products, TagType } from "$lib/types";
+
+import ProductCard from "$lib/components/Products/ProductCard.svelte";
 import Tag from "$lib/components/Tag.svelte";
-import { fly, fade } from "svelte/transition"
+
+import { fly, fade, scale } from "svelte/transition"
 import { cubicInOut, quintInOut } from "svelte/easing";
-import Cart from "$lib/components/Cart/Cart.svelte";
 
 export let products:Products;
 export let typesList:[TagType];
@@ -54,10 +37,10 @@ const tagFilterHandler = (typeName:string, typeColor:string) =>{
 
 </script>
 
-<section class="bg-pottery-mobile-img bg-center bg-cover bg-no-repeat flex justify-center align-center">
+<section class="min-h-[300px] md:h-[600px] bg-pottery-mobile-img bg-center bg-cover bg-no-repeat flex justify-center items-center">
     {#key tagFilterName}
     <h2 
-        class="my-20 text-white italic font-extrabold tracking-wide px-5 py-3 text-4xl"
+        class="h-fit text-white italic font-extrabold tracking-wide px-5 py-3 text-4xl"
         style="background-color: {tagFilterColor};"
         in:fade="{{easing: quintInOut, duration:600}}"
     >{tagFilterName}</h2>
@@ -73,16 +56,11 @@ const tagFilterHandler = (typeName:string, typeColor:string) =>{
             <Tag color={tag.color} name={tag.name} on:click={() => tagFilterHandler(`${tag.name}`, `${tag.color}`)}/>
         {/each}
     </div>
-
 </section>
-{#key tagFilterName}
-    {#each filteredProducts as product, i}
-        <div in:fade="{{delay:1+(i*200),duration:600, easing:cubicInOut}}" class="overflow-x-hidden">
-            <p>{product.id}</p>
-            <p>{product.title}</p>
-            <img loading='lazy' class="h-20" src="{product.imageSrc}" alt="">
-            <p>${product.price}</p>
-            <p>{product.productType}</p>
-        </div>
-    {/each}
-{/key}
+<section in:fade="{{duration:600, easing:quintInOut}}">
+    {#key tagFilterName}
+        {#each filteredProducts as product, i}
+        <ProductCard {product} {i}/>
+        {/each}
+    {/key}
+</section>
