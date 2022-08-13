@@ -11,7 +11,7 @@ export const load: Load = async ({ fetch }) => {
         status: response.status,
         props:{
             products: await json_response.products,
-            tags: await json_response.tags
+            typesList: await json_response.typesList,
         }
     }
     
@@ -19,37 +19,70 @@ export const load: Load = async ({ fetch }) => {
 </script>
 
 <script lang="ts">
-import type { Products } from "$lib/types";
+import type { Product, Products, TagType } from "$lib/types";
+import Tag from "$lib/components/Tag.svelte";
+import { fly, fade } from "svelte/transition"
+import { cubicInOut, quintInOut } from "svelte/easing";
+import Cart from "$lib/components/Cart/Cart.svelte";
 
 export let products:Products;
-export let tags:any;
+export let typesList:[TagType];
 
-let tagFilter = 'all products';
+let filteredProducts = products;
 
-let tagFilterHandler = () =>{
+$: tagFilterName = 'all pottery';
+$: tagFilterColor = '#EF493F'
+$: filterProducts = products;
 
-}
+const tagFilterHandler = (typeName:string, typeColor:string) =>{
+    if (typeName != 'all') {
+        tagFilterName = typeName;
+        tagFilterColor = typeColor;
+
+        filteredProducts = products.filter((product => {
+            return product.productType === tagFilterName;
+        }))
+
+    }
+    else {
+        tagFilterName = 'all pottery';
+        tagFilterColor = '#EF493F';
+        filteredProducts = products;
+    }
+};
+
 
 </script>
 
 <section class="bg-pottery-mobile-img bg-center bg-cover bg-no-repeat flex justify-center align-center">
-    <h2 class="my-20 bg-red text-white italic font-extrabold tracking-normal px-5 py-3 text-4xl">{tagFilter}</h2>
+    {#key tagFilterName}
+    <h2 
+        class="my-20 text-white italic font-extrabold tracking-wide px-5 py-3 text-4xl"
+        style="background-color: {tagFilterColor};"
+        in:fade="{{easing: quintInOut, duration:600}}"
+    >{tagFilterName}</h2>
+        
+    {/key}
+
 </section>
-<section class="tags">
-    <div class="text-brown italic font-bold tracking-normal p-5 pb-2 text-lg">tags:</div>
-    <div class="flex-wrap">
-        {#each tags as tag}
-        <button class='text-center pl-2 pr-3 ml-2 mb-4 italic font-bold tracking-normal bg-{tag.color} text-white'>{tag.name}</button>
+<section class="mb-5 tags">
+    <div class="text-brown italic font-bold tracking-normal ml-2 mt-5 text-xl">tags:</div>
+    <div class="mx-1 flex-wrap">
+        <Tag color='#EF493F' name='all' on:click={() => tagFilterHandler('all', '#EF493F')}/>
+        {#each typesList as tag}
+            <Tag color={tag.color} name={tag.name} on:click={() => tagFilterHandler(`${tag.name}`, `${tag.color}`)}/>
         {/each}
     </div>
 
 </section>
-
-{#each products as product}
-<div class="overflow-x-hidden">
-    <p>{product.id}</p>
-    <p>{product.title}</p>
-    <img loading='lazy' class="h-20" src="{product.imageSrc}" alt="">
-    <p>${product.price}</p>
-</div>
-{/each}
+{#key tagFilterName}
+    {#each filteredProducts as product, i}
+        <div in:fade="{{delay:1+(i*200),duration:600, easing:cubicInOut}}" class="overflow-x-hidden">
+            <p>{product.id}</p>
+            <p>{product.title}</p>
+            <img loading='lazy' class="h-20" src="{product.imageSrc}" alt="">
+            <p>${product.price}</p>
+            <p>{product.productType}</p>
+        </div>
+    {/each}
+{/key}

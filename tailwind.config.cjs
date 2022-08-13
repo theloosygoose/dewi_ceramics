@@ -2,19 +2,6 @@
 module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
-    colors: {
-      'brown': '#47291C',
-      'tan': '#DDD6BE',
-      'white': '#FFFFFF',
-      'red': '#EF493F',
-      'blue': '#5A85F1',
-      'green': '#58CB4E',
-      'magenta': '#D945C1',
-      'orange': '#FE794F',
-      'teal': '#49C1AC',
-      'light-tan': '#E9E5D9',
-      'grey': '#1E1E1E'
-    },
     letterSpacing: {
       normal: '-0.075em',
       wide: '-0.05em',
@@ -48,7 +35,20 @@ module.exports = {
         'store-desktop-img': "url('/images/store.jpg')",
         'mywork-desktop-img': "url('/images/mywork.jpg')",
         'pottery-mobile-img': "url('/images/pottery.png')",
-      }
+      },    
+      colors: {
+        'brown': '#47291C',
+        'tan': '#DDD6BE',
+        'white': '#FFFFFF',
+        'red': '#EF493F',
+        'blue': '#5A85F1',
+        'green': '#58CB4E',
+        'magenta': '#D945C1',
+        'orange': '#FE794F',
+        'teal': '#49C1AC',
+        'light-tan': '#E9E5D9',
+        'grey': '#1E1E1E'
+      },
     },
   },
   plugins: [],

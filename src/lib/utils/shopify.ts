@@ -49,7 +49,7 @@ export async function getAllProducts() {
                       amount
                     }
                   }
-                  tags
+                  productType
                   title
                 }
               }
@@ -222,16 +222,17 @@ export async function addToCart({cartId, variantId}:{cartId:string, variantId:st
     })
 } 
 
-export async function getTags(){
+export async function getTypes(){
   return postToShopify({
     query: `
     {
-      productTags(first: 10) {
+      productTypes(first: 10) {
         edges {
           node
         }
       }
     }
+    
   `,
   variables: {}
   })

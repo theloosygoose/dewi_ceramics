@@ -4,6 +4,11 @@ export type Product = {
     handle: string,
     price: string,
     imageSrc: string,
-    tags?: [] 
+    productType?: string
 }
 export type Products = [Product]
+
+export type TagType = {
+    name:string,
+    color:string
+}

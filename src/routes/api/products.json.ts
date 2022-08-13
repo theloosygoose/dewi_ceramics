@@ -1,5 +1,5 @@
 import type { RequestHandler } from "@sveltejs/kit";
-import { getAllProducts, getTags } from '$lib/utils/shopify';
+import { getAllProducts, getTypes } from '$lib/utils/shopify';
 import type { Product } from '$lib/types';
 
 export const GET: RequestHandler = async () => {
@@ -21,7 +21,7 @@ export const GET: RequestHandler = async () => {
                 }; 
             }[]; 
         }; 
-        tags: []; 
+        productType:string;
     }; }):Product => {
         return {
             id: product.node.id,
@@ -29,23 +29,23 @@ export const GET: RequestHandler = async () => {
             handle: product.node.handle,
             price: product.node.priceRange.minVariantPrice.amount,
             imageSrc: product.node.images.edges[0].node.src,
-            tags: product.node.tags
+            productType: product.node.productType,
         }
     })
 
-    const res_tags = await getTags();
-    const tags = await res_tags.body.productTags.edges.map((tag: { node: string; }, i: number) =>{
-        const colors = ['red', 'blue', 'green', 'magenta', 'orange', 'teal'];
+    const res_types = await getTypes();
+    const types_list = await res_types.body.productTypes.edges.map((tag: { node: string; }, i: number) =>{
+        const colors = ['#5A85F1', '#58CB4E', '#D945C1', '#FE794F', '#49C1AC', '#5F4ECB'];
         return {
             name: tag.node,
             color: colors[i]
         }
-    })
+    });
     return{
         status: res_products.status,
         body:{
             products: await products,
-            tags: await tags
+            typesList: await types_list 
         }
     }
 }
