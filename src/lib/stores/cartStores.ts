@@ -5,14 +5,14 @@ export const cartStore = writable([]);
 export const cartQuantity = writable();
 
 export const getCartItems = async () => {
-    const cartId:string|null = JSON.parse(localStorage.getItem('cartId'));
+    const cartId:string= JSON.parse(localStorage.getItem('cartId')|| "");
 
     try {
         const shopifyResponse = await loadCart(cartId)
 
         let sum = 0;
 
-        shopifyResponse.body.data.cart.lines.edges.forEach((d)=> {
+        shopifyResponse.body.data.cart.lines.edges.forEach((d: { node: { quantity: number; }; })=> {
             sum += d.node.quantity;
         });
 

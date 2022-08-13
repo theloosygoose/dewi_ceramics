@@ -13,15 +13,11 @@ let isMenuOpen:boolean;
 menuTagStore.subscribe(tag => menuTag = tag)
 isMenuOpenStore.subscribe(isOpen => isMenuOpen = isOpen)
 
-
 let isCartOpen:boolean;
 let cartTag:string;
 
 cartTagStore.subscribe(tag => cartTag = tag)
 isCartOpenStore.subscribe(isOpen => isCartOpen = isOpen)
-
-
-
 
 </script>
 
