@@ -1,5 +1,27 @@
+import { createCart, loadCart } from "$lib/utils/shopify";
 import { writable } from "svelte/store";
 
-const cartStore = writable();
+export const cartStore = writable([]);
+export const cartQuantity = writable();
 
-export default cartStore;
+export const getCartItems = async () => {
+    const cartId:string|null = JSON.parse(localStorage.getItem('cartId'));
+
+    try {
+        const shopifyResponse = await loadCart(cartId)
+
+        let sum = 0;
+
+        shopifyResponse.body.data.cart.lines.edges.forEach((d)=> {
+            sum += d.node.quantity;
+        });
+
+        cartQuantity.set(sum);
+        return shopifyResponse;
+        
+    } catch (error) {
+        console.log(error);
+        
+    }
+    
+}

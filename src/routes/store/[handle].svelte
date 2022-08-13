@@ -1,13 +1,23 @@
 <script lang="ts">
-import ProductCard from "$lib/components/Products/ProductCard.svelte";
-
+    import AddToCart from "$lib/components/Cart/AddToCart.svelte";
 
     export let singleProduct:any;
-    console.log(singleProduct)
-
+    export let productType:any;
+    console.log(productType)
 </script>
 
-<h1>{singleProduct.title}</h1>
-<h1>{singleProduct.description}</h1>
-<h1>{singleProduct.variants.edges[0].node.price}</h1>
-<img class="h-64" src="{singleProduct.images.edges[0].node.src}" alt="">
+<div>
+    <img class="h-64" src="{singleProduct.images[0].node.src}" alt="">
+    <div class="flex justify-start items-end">
+        <h1 class="text-6xl -mb-4 text-brown font-extrabold tracking-normal">{singleProduct.title}</h1>
+        <p class="text-m m-2 mx-6 px-2 rounded py-1 bord w-fit h-fit text-white font-bold italic"
+        style="background-color: {productType.color};"
+        >{productType.name}</p>
+
+    </div>
+
+    <h1>{singleProduct.description}</h1>
+    <h1>{singleProduct.price}</h1>
+    <AddToCart/>
+
+</div>

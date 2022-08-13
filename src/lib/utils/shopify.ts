@@ -112,7 +112,7 @@ export async function getProduct(handle:string) {
               id
               handle
               title
-              tags
+              productType
               images(first: 5) {
                 edges {
                   node {

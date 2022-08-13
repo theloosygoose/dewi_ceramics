@@ -5,8 +5,8 @@ import type { Products, TagType } from "$lib/types";
 import ProductCard from "$lib/components/Products/ProductCard.svelte";
 import Tag from "$lib/components/Tag.svelte";
 
-import { fly, fade, scale } from "svelte/transition"
-import { cubicInOut, quintInOut } from "svelte/easing";
+import { fade } from "svelte/transition"
+import { quintInOut } from "svelte/easing";
 
 export let products:Products;
 export let typesList:[TagType];

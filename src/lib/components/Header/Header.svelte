@@ -3,17 +3,26 @@ import Cart from "../Cart/Cart.svelte";
 import Nav from "./Nav.svelte"; 
 import { fly } from "svelte/transition"
 import { cubicInOut } from "svelte/easing";
+import { menuTagStore, isMenuOpenStore, menuHandler, isCartOpenStore, cartTagStore, cartHandler } from "$lib/stores/headerStores";
+import CartQuantity from "../Cart/CartQuantity.svelte";
 
-let isMenuOpen = false;
-let menuTag = 'Menu'
-const menuHandler = () => {
-     isMenuOpen = !isMenuOpen
-     if (menuTag === 'Menu'){
-        menuTag = 'Close'
-     } else {
-        menuTag ='Menu'
-     }
-}
+
+let menuTag:string;
+let isMenuOpen:boolean;
+
+menuTagStore.subscribe(tag => menuTag = tag)
+isMenuOpenStore.subscribe(isOpen => isMenuOpen = isOpen)
+
+
+let isCartOpen:boolean;
+let cartTag:string;
+
+cartTagStore.subscribe(tag => cartTag = tag)
+isCartOpenStore.subscribe(isOpen => isCartOpen = isOpen)
+
+
+
+
 </script>
 
 <header class="z-10 flex justify-end align-end p-5 h-[4.5rem] bg-tan">
@@ -26,9 +35,19 @@ const menuHandler = () => {
         {menuTag}
         </button>
     {/key}
-    <Cart/>
+
+    {#key isCartOpen}
+        <button class="z-50 tracking-normal font-extrabold text-brown text-xl absolute top-4 right-7 overflow-visible"
+        on:click={cartHandler}
+        in:fly={{y:-40, duration:500, opacity:0, easing: cubicInOut}}
+        out:fly={{y:40, duration:500, opacity:0, easing: cubicInOut}}>
+            {cartTag}
+            <CartQuantity/>
+        </button>
+    {/key}
 </header>
-    <Nav {isMenuOpen} on:click={menuHandler} />
+    <Nav/>
+    <Cart/>
 
 <style>
 
