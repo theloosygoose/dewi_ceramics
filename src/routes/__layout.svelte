@@ -1,36 +1,34 @@
 <script lang="ts">
     import '../app.css';
+
     import Header from '$lib/components/Header/Header.svelte';
     import Footer from '$lib/components/Footer.svelte';
-
-    import { createCart} from '$lib/utils/shopify';
-
+    
+    import { createCart } from '$lib/utils/shopify';
     import { onMount } from 'svelte';
-    import { getCartItems } from '$lib/stores/cartStores'
+    import { getCartItems } from '$lib/stores/cartStores';
 
-    let cartId;;
-    let checkoutUrl;
-    let cartCreatedAt;
-    let cartItems;
+    let cartId:string;
+    let checkoutUrl:string;
+    let currentDate = Date.now();
 
     onMount(async () => {
     if (typeof window !== 'undefined') {
         if (localStorage.getItem('cartId') === null){
             const newCart = callCreateCart();
-            localStorage.setItem('cartId',(await newCart).cartId)
-            localStorage.setItem('checkoutUrl', (await newCart).checkoutUrl)
+            localStorage.setItem('cartId',JSON.stringify((await newCart).cartId));
+            localStorage.setItem('checkoutUrl', JSON.stringify((await newCart).checkoutUrl));
+            localStorage.setItem('cartCreatedAt', JSON.stringify(Date.now()));
 
-            cartId = (await newCart).cartId;
-            checkoutUrl = (await newCart).checkoutUrl;
-
-        } else {
-            cartId = localStorage.getItem('cartId');
-            checkoutUrl = localStorage.getItem('checkoutUrl')
+        } else if (currentDate - parseInt(JSON.parse(localStorage.getItem('cartCreatedAt') || '')) > 1000 * 60 * 60 * 24 * 7) {
+            localStorage.clear()
+            const newCart = callCreateCart();
+            localStorage.setItem('cartId',JSON.stringify((await newCart).cartId));
+            localStorage.setItem('checkoutUrl', JSON.stringify((await newCart).checkoutUrl));
+            localStorage.setItem('cartCreatedAt', JSON.stringify(Date.now));
         }
-
-        console.log('This is my cart id: ', cartId)
-        console.log('This is my checkoutUrl: ', checkoutUrl)
     }
+    getCartItems();
   });
 
   async function callCreateCart() {
@@ -40,10 +38,10 @@
         checkoutUrl: await cartRes.body.cartCreate.cart.checkoutUrl,
     }
   }
-
 </script>
+
 <main class="bg-light-tan">
-    <Header />
+    <Header/> 
     <slot/>
     <Footer/>
 </main>

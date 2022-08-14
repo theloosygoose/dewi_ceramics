@@ -6,9 +6,11 @@ export type Product = {
     imageSrc: string,
     productType?: string
 }
-export type Products = [Product]
+export type Products = [Product?]
 
 export type TagType = {
     name:string,
     color:string
 }
+
+export type LocalStorage = string | null | undefined;

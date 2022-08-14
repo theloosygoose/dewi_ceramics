@@ -3,7 +3,6 @@
 
     export let singleProduct:any;
     export let productType:any;
-    console.log(productType)
 </script>
 
 <div>
@@ -18,6 +17,5 @@
 
     <h1>{singleProduct.description}</h1>
     <h1>{singleProduct.price}</h1>
-    <AddToCart/>
-
+    <AddToCart {singleProduct}/>
 </div>

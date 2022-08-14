@@ -62,40 +62,55 @@ export async function getAllProducts() {
 
 export async function loadCart(cartId:string) {
     return postToShopify({
-        query:`
-        query getCart($cartid: ID!) {
-            cart(id: $cartid) {
-              checkoutUrl
-              createdAt
-              id
-              lines(first: 20) {
+      query: `
+      query GetCart($cartId: ID!) {
+        cart(id: $cartId) {
+          checkoutUrl
+            estimatedCost {
+                totalAmount {
+                amount
+                }
+            }
+            lines(first: 100) {
                 edges {
-                  node {
+                node {
+                    id
+                    quantity
+                    estimatedCost {
+                    subtotalAmount {
+                        amount
+                        currencyCode
+                    }
+                    totalAmount {
+                        amount
+                        currencyCode
+                    }
+                    }
                     merchandise {
-                      ... on ProductVariant {
+                    ... on ProductVariant {
                         id
-                        price
-                        availableForSale
-                        quantityAvailable
                         title
                         product {
-                          images(first: 1) {
-                            edges {
-                              node {
-                                src
+                            images(first: 1) {
+                                edges {
+                                  node {
+                                    originalSrc
+                                    altText
+                                    width
+                                    height
+                                  }
+                                }
                               }
-                            }
-                          }
-                          title
+                            title
                         }
-                      }
                     }
-                  }
+                    }
                 }
-              }
+                }
             }
           }
-        `,
+      }
+    `,
         variables:{ cartId }
     })
     
@@ -185,42 +200,43 @@ export async function updateCart({cartId, lineId, variantId, quantity}:{cartId:s
     });
 }
 
-export async function addToCart({cartId, variantId}:{cartId:string, variantId:string}) {
-    return postToShopify({
-        query: `
-            mutation addToCart($cartId: ID!, $lines: [CartLineInput!]!) {
-                cartLinesAdd(cartId: $cartId, lines: $lines) {
-                    cart {
-                    lines(first: 100) {
-                        edges {
-                        node {
-                            id
-                            quantity
-                            merchandise {
-                            ... on ProductVariant {
-                                product {
-                                title
-                                }
-                            }
-                            }
-                        }
-                        }
+export async function addToCart({ cartId, variantId }: {cartId:any,variantId:any}) {
+  return postToShopify({
+    query: `
+      mutation addToCart($cartId: ID!, $lines: [CartLineInput!]!) {
+        cartLinesAdd(cartId: $cartId, lines: $lines) {
+          cart {
+            lines(first: 100) {
+              edges {
+                node {
+                  id
+                  quantity
+                  merchandise {
+                    ... on ProductVariant {
+                      product {
+                        title
+                      }
                     }
-                    }
+                  }
                 }
+              }
             }
-        `,
-        variables: {
-            cartId: cartId,
-            lines: [
-                {
-                    merchandiseId:variantId,
-                    quantity: 1
-                }
-            ]
+          }
         }
-    })
-} 
+      }
+    `,
+
+    variables: {
+      cartId: cartId,
+      lines: [
+        {
+          merchandiseId: variantId,
+          quantity: 1
+        }
+      ]
+    }
+  });
+}
 
 export async function getTypes(){
   return postToShopify({

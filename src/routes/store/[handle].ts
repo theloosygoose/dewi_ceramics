@@ -12,7 +12,7 @@ export async function GET({params}:{handle:string}){
         images: resSingleProduct.images.edges,
         handle: resSingleProduct.handle,
         description: resSingleProduct.description,
-        variantID: resSingleProduct.variants.edges[0].node.id,
+        variantId: resSingleProduct.variants.edges[0].node.id,
         price: resSingleProduct.variants.edges[0].node.price,
         productType: resSingleProduct.productType
     } 

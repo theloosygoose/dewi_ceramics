@@ -1,6 +1,6 @@
 import { createCart, addToCart, updateCart } from '$lib/utils/shopify';
 
-export async function post() {
+export async function POST() {
   await createCart();
 
   return {
@@ -8,7 +8,7 @@ export async function post() {
   };
 }
 
-export async function put({ request }) {
+export async function PUT({ request }: {request:any}) {
   const body = await request.json();
   const response = await updateCart(body);
 
@@ -17,11 +17,11 @@ export async function put({ request }) {
   };
 }
 
-export async function patch({ request }) {
+export async function PATCH({ request }: {request:any}) {
   const body = await request.json();
   const response = await addToCart(body);
 
   return {
     body: { data: response.body.data }
   };
-}m
+}
