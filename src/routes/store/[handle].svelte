@@ -6,6 +6,7 @@
 </script>
 
 <div>
+    <a href="/store" class="text-brown text-lg italic font-extrabold hover:text-tan">Back to Products</a>
     <img class="h-64" src="{singleProduct.images[0].node.src}" alt="">
     <div class="flex justify-start items-end">
         <h1 class="text-6xl -mb-4 text-brown font-extrabold tracking-normal">{singleProduct.title}</h1>

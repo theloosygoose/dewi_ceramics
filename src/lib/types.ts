@@ -1,12 +1,12 @@
 export type Product = {
-    id:string,
-    title: string,
-    handle: string,
-    price: string,
-    imageSrc: string,
+    id?:string,
+    title?: string,
+    handle?: string,
+    price?: string,
+    imageSrc?: string,
     productType?: string
 }
-export type Products = [Product?]
+export type Products = Array<Product> | [];
 
 export type TagType = {
     name:string,

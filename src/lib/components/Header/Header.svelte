@@ -21,9 +21,9 @@ isCartOpenStore.subscribe(isOpen => isCartOpen = isOpen)
 
 </script>
 
-<header class="z-10 flex justify-end align-end p-5 h-[4.5rem] bg-tan">
+<header class="z-10 flex justify-center items-center p-5 h-[4.5rem] bg-tan">
     {#key isMenuOpen}
-        <button class="text-brown absolute left-3 top-3 pr-2 text-3xl font-extrabold tracking-normal" 
+        <button class="text-brown absolute left-3 top-4.05 pr-2 text-xl font-extrabold tracking-normal" 
         on:click={menuHandler}
         in:fly={{y:-40, duration:500, opacity:0, easing: cubicInOut}}
         out:fly={{y:40, duration:500, opacity:0, easing: cubicInOut}}
@@ -31,9 +31,11 @@ isCartOpenStore.subscribe(isOpen => isCartOpen = isOpen)
         {menuTag}
         </button>
     {/key}
+    <h1 transition:fly class="text-2xl text-brown font-black tracking-normal"><a href="/">DEWI CERAMICS</a></h1>
+
 
     {#key isCartOpen}
-        <button class="z-50 tracking-normal font-extrabold text-brown text-xl absolute top-4 right-7 overflow-visible"
+        <button class="z-50 tracking-normal font-extrabold text-brown text-lg absolute top-4 right-3 overflow-visible"
         on:click={cartHandler}
         in:fly={{y:-40, duration:500, opacity:0, easing: cubicInOut}}
         out:fly={{y:40, duration:500, opacity:0, easing: cubicInOut}}>

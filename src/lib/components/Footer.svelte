@@ -3,7 +3,7 @@
 </script>
 <footer class="mt-2 p-5 text-center lg:text-left bg-grey text-white">
     <div class="flex justify-center align-center">
-    <a href="#!" class="text-white">
+    <a href="https://www.instagram.com/dewi.ceramics/" class="text-white">
         <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram"
         class="w-6" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
         <path fill="currentColor"
@@ -35,7 +35,7 @@
             Useful links
           </h6>
           <p class="mb-4">
-            <a href="#!" class="text-white">Store</a>
+            <a href="/store" class="text-white">Store</a>
           </p>
           <p class="mb-2">
             <a href="#!" class="text-white">My Work</a>

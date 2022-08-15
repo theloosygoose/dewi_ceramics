@@ -8,7 +8,7 @@ import Tag from "$lib/components/Tag.svelte";
 import { fade } from "svelte/transition"
 import { quintInOut } from "svelte/easing";
 
-export let products:Products;
+export let products:Products = [];
 export let typesList:[TagType];
 
 let filteredProducts = products;
@@ -21,10 +21,11 @@ const tagFilterHandler = (typeName:string, typeColor:string) =>{
     if (typeName != 'all') {
         tagFilterName = typeName;
         tagFilterColor = typeColor;
-
-        filteredProducts = products.filter((product => {
-            return product.productType === tagFilterName;
-        }))
+        if (typeof products != undefined || typeof filteredProducts != undefined){
+            filteredProducts = products.filter((product => {
+                return product.productType === tagFilterName;
+            }))
+        }
 
     }
     else {
@@ -57,7 +58,8 @@ const tagFilterHandler = (typeName:string, typeColor:string) =>{
         {/each}
     </div>
 </section>
-<section in:fade="{{duration:600, easing:quintInOut}}">
+<section in:fade="{{duration:600, easing:quintInOut}}"
+class="grid grid-cols-2 gap-3 md:grid-cols-3 md:grid-gap-5 lg:grid-cols-4 lg:grid-gap-7">
     {#key tagFilterName}
         {#each filteredProducts as product, i}
         <ProductCard {product} {i}/>
