@@ -1,5 +1,5 @@
 <script lang="ts">
-
+import { fly } from 'svelte/transition';
 
 let checkoutUrl;
 async function goCheckout() {
@@ -13,6 +13,7 @@ async function goCheckout() {
 
 <button 
     on:click={() => goCheckout()}
-    class="bg-brown text-white font-bold text-lg w-1/2 p-2">
+    in:fly="{{x:-5, delay:500}}"
+    class="self-end bg-brown text-white font-bold text-2xl w-full h-fit">
 Checkout
 </button>

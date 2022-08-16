@@ -25,7 +25,7 @@ async function removeItem(merchandiseId, lineId) {
 }
 </script>
 
-<button class="bg-red text-white font-semibold p-2 text-sm"
+<button class="rounded bg-red text-white font-semibold px-3 py-2 text-sm flex justify-center items-center"
     on:click={() => {removeItem(merchandiseId, lineId)}}>
     {#if removeLoading === false}
         X

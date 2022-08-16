@@ -14,7 +14,7 @@
 <svelte:window bind:scrollY={scroll}/>
 <div class="lg:bg-hero-desktop-img bg-hero-mobile-img bg-center bg-no-repeat bg-cover w-screen h-[400px] md:h-[600px] lg:h-[1000px] flex items-end justify-left overflow-hidden">
     {#if ready}
-        <h1 class="relative z-10 pl-5 pb-5 text-6xl sm:text-7xl md:text-9xl font-extrabold tracking-normal leading-[0.78] text-white"
+        <h1 class="relative z-0 pl-5 pb-5 text-6xl sm:text-7xl md:text-9xl font-extrabold tracking-normal leading-[0.78] text-white"
             style:transform={`translate3d(0, -${scroll*1.2}px, 0)`}
             in:fly="{{y:50, delay:500, duration:700}}">
                     DEWI <br> CERAMICS 

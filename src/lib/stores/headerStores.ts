@@ -9,6 +9,8 @@ export const cartTagStore = writable('Cart');
 
 export const menuHandler = () => {
     isMenuOpenStore.update((isOpen:boolean) => isOpen = !isOpen) 
+    isCartOpenStore.update((isOpen:boolean) => isOpen = false)
+    cartTagStore.update((tag) => tag = 'Cart')
 
     menuTagStore.update((tag:string) => {
         if (tag === 'Menu'){
@@ -21,6 +23,8 @@ export const menuHandler = () => {
 
 export const cartHandler = () => {
     isCartOpenStore.update((isOpen:boolean) => isOpen = !isOpen)
+    isMenuOpenStore.update((isOpen:boolean) => isOpen = false)
+    menuTagStore.update((tag:string)=> tag = "Menu")
 
     cartTagStore.update((tag:string) => {
         if (tag === 'Cart'){

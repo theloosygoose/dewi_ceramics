@@ -9,15 +9,15 @@
 
 </script>
 {#if typeof product != undefined}
-    <a sveltekit:prefetch href="/store/{product.handle}">
+    <a sveltekit:prefetch class="mix-w-[50px] min-h-[50px]" href="/store/{product.handle}">
         <div in:scale="{{delay:1+(i*200),duration:600, easing:cubicInOut}}" class="overflow-x-hidden">
-            <img loading='lazy' height="50" class="rounded" src="{product.imageSrc}" alt="">
-            <div class="flex justify-start mx-3">
-                <p class="text-brown tracking-normal font-semibold text-lg">{product.title}</p>
-                <p class="text-brown tracking-normal font-semibold text-lg">${product.price}</p>
+            <div class="h-64 w-full drop-shadow-md">
+                <img class="h-full w-full object-cover object-center" loading='lazy' srcset="{product.imageSrc}" alt="{product.handle}">
+            </div>
+            <div class="p-2 flex-col justify-between ml-1 mr-3">
+                <p class="text-black text-lg font-semibold">{product.title}</p>
+                <p class="text-black text-lg font-medium">${product.price}</p>
             </div>
         </div>
     </a>
-{:else}
-    ...Loading Products
 {/if}

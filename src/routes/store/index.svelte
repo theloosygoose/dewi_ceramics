@@ -49,17 +49,18 @@ const tagFilterHandler = (typeName:string, typeColor:string) =>{
     {/key}
 
 </section>
-<section class="mb-5 tags">
-    <div class="text-brown italic font-bold tracking-normal ml-2 mt-5 text-xl">tags:</div>
-    <div class="mx-1 flex-wrap">
+<section class="mb-4 tags mx-[5%]">
+    <div class="text-brown italic font-bold tracking-normal mt-5 text-xl">tags:</div>
+    <div class="flex-wrap">
         <Tag color='#EF493F' name='all' on:click={() => tagFilterHandler('all', '#EF493F')}/>
         {#each typesList as tag}
             <Tag color={tag.color} name={tag.name} on:click={() => tagFilterHandler(`${tag.name}`, `${tag.color}`)}/>
         {/each}
     </div>
 </section>
+<hr class="w-[80%] border-brown border-1 m-auto mb-5"/>
 <section in:fade="{{duration:600, easing:quintInOut}}"
-class="grid grid-cols-2 gap-3 md:grid-cols-3 md:grid-gap-5 lg:grid-cols-4 lg:grid-gap-7">
+class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:mx-[5%]">
     {#key tagFilterName}
         {#each filteredProducts as product, i}
         <ProductCard {product} {i}/>

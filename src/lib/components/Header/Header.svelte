@@ -21,7 +21,7 @@ isCartOpenStore.subscribe(isOpen => isCartOpen = isOpen)
 
 </script>
 
-<header class="z-10 flex justify-center items-center p-5 h-[4.5rem] bg-tan">
+<header class="sticky top-0 z-10 flex justify-center items-center p-5 h-[4.5rem] bg-tan">
     {#key isMenuOpen}
         <button class="text-brown absolute left-3 top-4.05 pr-2 text-xl font-extrabold tracking-normal" 
         on:click={menuHandler}
@@ -31,7 +31,7 @@ isCartOpenStore.subscribe(isOpen => isCartOpen = isOpen)
         {menuTag}
         </button>
     {/key}
-    <h1 transition:fly class="text-2xl text-brown font-black tracking-normal"><a href="/">DEWI CERAMICS</a></h1>
+    <h1 transition:fly class="z-0 text-2xl text-brown font-black tracking-normal"><a href="/">DEWI CERAMICS</a></h1>
 
 
     {#key isCartOpen}
