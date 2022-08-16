@@ -40,7 +40,7 @@ export async function getAllProducts() {
                   images(first: 1) {
                     edges {
                       node {
-                        src
+                        transformedSrc(preferredContentType: WEBP, crop: CENTER, maxHeight: 256)
                       }
                     }
                   }

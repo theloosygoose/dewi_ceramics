@@ -27,7 +27,7 @@ export async function GET() {
             title: product.node.title,
             handle: product.node.handle,
             price: product.node.priceRange.minVariantPrice.amount,
-            imageSrc: product.node.images.edges[0].node.src,
+            imageSrc: product.node.images.edges[0].node.transformedSrc,
             productType: product.node.productType,
         }
     })

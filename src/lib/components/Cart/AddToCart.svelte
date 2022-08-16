@@ -37,36 +37,31 @@ async function addToCart() {
 </script>
 
 <button
-    class="bg-brown text-white p-3 w-1/3 font-extrabold text-center"
+    class="h-fit self-center justify-self-center bg-brown text-white p-3 w-[70%] font-extrabold grid grid-cols-3 grid-rows-1 justify-center items-center"
     on:click={addToCart}
     >
-    <div class="flex justify-center items-center">
-    <span>Add To Cart</span>
-    {#if cartLoading}
-        <div class="ml-2 loader mb-1"></div>
-    {/if}
-    </div>
+    <span class="col-start-2">Add To Cart</span>
+    <svg class="col-start-3 mx-auto"version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+        {#if cartLoading}
+            <rect x="0" y="0" width="5" height="16" fill="#fff">
+                <animateTransform attributeType="xml"
+                attributeName="transform" type="translate"
+                values="0 0; 0 20; 0 0"
+                begin="0" dur="0.9s" repeatCount="indefinite" />
+            </rect>
+            <rect x="6" y="0" width="5" height="16" fill="#fff">
+                <animateTransform attributeType="xml"
+                attributeName="transform" type="translate"
+                values="0 0; 0 20; 0 0"
+                begin="0.2s" dur="0.9s" repeatCount="indefinite" />
+            </rect>
+            <rect x="12" y="0" width="5" height="16" fill="#fff">
+                <animateTransform attributeType="xml"
+                attributeName="transform" type="translate"
+                values="0 0; 0 20; 0 0"
+                begin="0.4s" dur="0.9s" repeatCount="indefinite" />
+            </rect>
+       {/if}
+    </svg>
 
 </button>
-
-<style>
-.loader {
-  width: 20px;
-  aspect-ratio: .75;
-  --c: no-repeat linear-gradient(rgb(255, 255, 255) 0 0);
-  background: 
-    var(--c),
-    var(--c),
-    var(--c);
-  background-size: 20% 50%;
-  animation: load 1s infinite linear;
-}
-@keyframes load {
-  0%  {background-position: 0% 100%,50% 100%,100% 100%} 
-  20% {background-position: 0% 50% ,50% 100%,100% 100%} 
-  40% {background-position: 0% 0%  ,50% 50% ,100% 100%} 
-  60% {background-position: 0% 100%,50% 0%  ,100% 50% } 
-  80% {background-position: 0% 100%,50% 100%,100% 0%  } 
-  100%{background-position: 0% 100%,50% 100%,100% 100%} 
-}
-</style>

@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { Product } from '$lib/types';
     import { cubicInOut } from 'svelte/easing';
-    import { scale } from 'svelte/transition';
+    import { blur } from 'svelte/transition';
 
     export let product:Product;
     export let i:number;
@@ -9,8 +9,8 @@
 
 </script>
 {#if typeof product != undefined}
-    <a sveltekit:prefetch class="mix-w-[50px] min-h-[50px]" href="/store/{product.handle}">
-        <div in:scale="{{delay:1+(i*200),duration:600, easing:cubicInOut}}" class="overflow-x-hidden">
+    <a sveltekit:prefetch class="mix-w-[50px] min-h-[50px] hover:translate-y-1" href="/store/{product.handle}">
+        <div in:blur="{{delay:1+(i*200),duration:600, easing:cubicInOut}}" class="overflow-x-hidden">
             <div class="h-64 w-full drop-shadow-md">
                 <img class="h-full w-full object-cover object-center" loading='lazy' srcset="{product.imageSrc}" alt="{product.handle}">
             </div>

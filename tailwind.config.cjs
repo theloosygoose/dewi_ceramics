@@ -38,7 +38,7 @@ module.exports = {
       },    
       colors: {
         'brown': '#47291C',
-        'tan': '#DDD6BE',
+        'tan': '#E9E5D9',
         'white': '#FFFFFF',
         'red': '#EF493F',
         'blue': '#5A85F1',

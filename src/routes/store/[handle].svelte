@@ -7,16 +7,21 @@
 
 <div>
     <a href="/store" class="text-brown text-lg italic font-extrabold hover:text-tan"> Back to Products</a>
-    <img class="h-64" src="{singleProduct.images[0].node.src}" alt="">
-    <div class="flex justify-start items-end">
-        <h1 class="text-6xl -mb-4 text-brown font-extrabold tracking-normal">{singleProduct.title}</h1>
-        <p class="text-m m-2 mx-6 px-2 rounded py-1 bord w-fit h-fit text-white font-bold italic"
-        style="background-color: {productType.color};"
-        >{productType.name}</p>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="h-[350px] sm:h-[400px] md:h-[600px] w-full self-center justify-self-center">
+            <img class="h-full w-full object-cover object-center" src="{singleProduct.images[0].node.src}" alt="">
+        </div>
+        <div class="grid grid-cols-1 h-fit gap-2 mx-5">
+            <div class="flex justify-start items-center">
+                <h1 class="text-5xl text-brown font-extrabold leading-[0.78] tracking-wide">{singleProduct.title}</h1>
+                <p class="text-m mx-6 px-2 py-1 bord w-fit h-fit text-white font-bold italic"
+                style="background-color: {productType.color};"
+                >{productType.name}</p>
+            </div>
 
+            <p class="ml-4 mt-2 text-gray-900 font-medium tracking-normal self-start justify-self-center leading-snug">{singleProduct.description}</p>
+            <h2 class="text-brown font-bold text-3xl self-start">${singleProduct.price}</h2>
+            <AddToCart {singleProduct}/>
+        </div>
     </div>
-
-    <h1>{singleProduct.description}</h1>
-    <h1>{singleProduct.price}</h1>
-    <AddToCart {singleProduct}/>
 </div>
