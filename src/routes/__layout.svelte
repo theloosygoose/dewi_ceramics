@@ -3,6 +3,7 @@
 
     import Header from '$lib/components/Header/Header.svelte';
     import Footer from '$lib/components/Footer.svelte';
+    import Alert from '$lib/components/Alert.svelte';
     
     import { createCart } from '$lib/utils/shopify';
     import { onMount } from 'svelte';
@@ -42,6 +43,7 @@
 
 <main class="bg-light-tan">
     <Header/> 
+    <Alert/>
     <slot/>
     <Footer/>
 </main>

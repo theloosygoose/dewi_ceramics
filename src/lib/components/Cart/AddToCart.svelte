@@ -1,20 +1,30 @@
 <script lang="ts">
-import { getCartItems } from "$lib/stores/cartStores";
+import { cartItemsStore, getCartItems } from "$lib/stores/cartStores";
+import { alertHandler } from "$lib/stores/alertToggle";
 
 
 export let singleProduct:any;
+let cartItems: any;
+cartItemsStore.subscribe((items) => cartItems = items);
 
 let cartLoading = false;
 async function addToCart() {
     cartLoading = true;
-    let variantId;
     let cartId;
+    const variantId = singleProduct.variantId;
+    if ( 'lines' in cartItems ) {
+        if (cartItems['lines']['edges'].filter((item: any)=> item.node.merchandise.id === variantId)) {
+            console.log('CANT PUT TWO OF THE SAME');
+            alertHandler();
+            getCartItems();
+            cartLoading= false;
+        }        
+    }
 
     if (typeof window != 'undefined'){
         cartId = JSON.parse(localStorage.getItem('cartId') || '');
     }
 
-    variantId = singleProduct.variantId;
     
     await fetch('/api/cart.json', {
         method: 'PATCH',

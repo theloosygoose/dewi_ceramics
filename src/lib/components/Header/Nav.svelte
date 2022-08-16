@@ -1,7 +1,7 @@
 <script lang="ts">
 
 import { slide, fade } from "svelte/transition";
-import { elasticOut, expoOut} from 'svelte/easing';
+import { backOut,expoOut } from 'svelte/easing';
 import { isMenuOpenStore, menuHandler } from "$lib/stores/headerStores";
 
 let isMenuOpen: boolean;
@@ -9,7 +9,7 @@ isMenuOpenStore.subscribe(isOpen => isMenuOpen = isOpen)
 
 </script>
 {#if isMenuOpen}
-    <nav in:slide="{{duration: 1000, easing: elasticOut}}"  out:slide="{{duration:1000, easing: expoOut, delay: 500}}" 
+    <nav in:slide="{{duration: 600, easing: backOut}}"  out:slide="{{duration:1000, easing: expoOut, delay: 500}}" 
         class="z-50 flex justify-center align-center w-full h-fit fixed overflow-hidden bg-tan">
         <ul in:fade="{{duration:300, delay:700}}" out:fade="{{duration:300}}"
         class="text-brown">
