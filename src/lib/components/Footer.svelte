@@ -13,7 +13,7 @@
     </a>
     </div>
     <div class="mx-6 py-8 text-center md:text-left">
-      <div class="grid grid-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="grid grid-1 md:grid-cols-2 justify-center gap-8">
         <div class="">
           <h6 class="
               uppercase
