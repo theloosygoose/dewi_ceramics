@@ -30,7 +30,28 @@ async function removeItem(merchandiseId, lineId) {
     {#if removeLoading === false}
         X
     {:else} 
-        <div class="w-4 h-4 rounded-full animate-spin border-2 border-solid border-green-500 border-t-transparent"></div>
+        <div class="loader mb-1"></div>
     {/if}
 </button>
 
+<style>
+.loader {
+  width: 10px;
+  aspect-ratio: .75;
+  --c: no-repeat linear-gradient(rgb(255, 255, 255) 0 0);
+  background: 
+    var(--c),
+    var(--c),
+    var(--c);
+  background-size: 25% 50%;
+  animation: load 1s infinite linear;
+}
+@keyframes load {
+  0%  {background-position: 0% 100%,50% 100%,100% 100%} 
+  20% {background-position: 0% 50% ,50% 100%,100% 100%} 
+  40% {background-position: 0% 0%  ,50% 50% ,100% 100%} 
+  60% {background-position: 0% 100%,50% 0%  ,100% 50% } 
+  80% {background-position: 0% 100%,50% 100%,100% 0%  } 
+  100%{background-position: 0% 100%,50% 100%,100% 100%} 
+}
+</style>
