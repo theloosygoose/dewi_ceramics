@@ -9,6 +9,6 @@ export let extras = "";
 </script>
 
 <button 
-    class="h-{height} w-{width} p-1 pr-[0.35rem] text-center ml-2 mb-2 text-white font-bold italic text-{text} hover:opacity-80 {extras}"
+    class="h-{height} w-{width} p-1 pr-[0.35rem] text-center ml-2 mb-2 text-tan font-bold italic text-{text} hover:opacity-80 {extras}"
     style="background-color:{color};"
     on:click>{name}</button>

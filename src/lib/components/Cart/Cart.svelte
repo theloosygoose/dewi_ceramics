@@ -1,9 +1,9 @@
 <script lang="ts">
-import { isCartOpenStore } from "$lib/stores/headerStores";
+import { isCartOpenStore, cartHandler } from "$lib/stores/headerStores";
 import { cartItemsStore } from "$lib/stores/cartStores";
 
-import { backOut, expoOut } from "svelte/easing";
-import { slide, fly } from "svelte/transition"
+import { expoOut } from "svelte/easing";
+import { slide } from "svelte/transition"
 import RemoveItem from "$lib/components/Cart/RemoveItem.svelte";
 import CheckoutButton from "./CheckoutButton.svelte";
 
@@ -27,34 +27,37 @@ cartItemsStore.subscribe((items) => {
 
 {#if isCartOpen}
     <div 
-    in:slide="{{duration:1000, easing: backOut}}" out:slide="{{duration:600, easing:expoOut}}"
-    class="z-10 bg-tan h-fit w-full md:w-1/2 lg:w-1/3 fixed right-0 overflow-hidden drop-shadow-xl
+    in:slide="{{duration:1000, easing:expoOut}}" out:slide="{{duration:600, easing:expoOut}}"
+    class="z-10 bg-tan h-fit w-full md:w-1/2 lg:w-1/3 fixed right-0 overflow-hidden drop-shadow-2xl p-2
             grid grid-cols-1 grid-row">
-    {#key cartItems}
-        {#if cartItems.length < 1}
-            <div class="m-auto my-4">
+            {#key cartItems}
+            {#if cartItems.length < 1}
+            <div class="mx-auto my-4">
                 <h1 class="text-xl font-bold text-brown leading-normal">HEY! Your Cart is Empty</h1>
-                <a href="/store" class="text-brown" > Click <u class="text-red"> Me</u> to Look at Some Pots!</a>
-
+                <img class="ml-[25%] h-[200px]" src="/sad.svg" alt="c'mon do something meme">
+                <a on:click="{cartHandler}" href="/store" class="text-brown underline" > Click Me to Look at Some Pots!</a>
             </div>
-        {:else}
-            <div class="flex-col">
-                {#each cartItems as item, i}
-                    <div class="flex justify-between items-end py-2" >
-                        <img width='50px' src="{item.node.merchandise.product.images.edges[0].node.originalSrc}" alt="">
-                        <h1 class="text-lg text-brown font-semibold">{item.node.merchandise.product.title}</h1>
-                        <h2>{item.node.estimatedCost.subtotalAmount.amount}</h2>
-                        <RemoveItem merchandiseId = {item.node.merchandiseId} lineId = {item.node.id}/> 
+            {:else}
+            <div class="static">
+                    <div class="flex-col">
+                        {#each cartItems as item, i}
+                            <div class="grid grid-cols-4 items-end py-2" >
+                                <img class="rounded" width='50px' src="{item.node.merchandise.product.images.edges[0].node.originalSrc}" alt="">
+                                <h1 class="text-lg text-brown font-semibold leading-[1.2]">{item.node.merchandise.product.title}</h1>
+                                <h2 class="text-right text-brown font-medium">${item.node.estimatedCost.subtotalAmount.amount}0</h2>
+                                <RemoveItem merchandiseId = {item.node.merchandiseId} lineId = {item.node.id}/> 
+                            </div>
+                        {/each}
+                        <div class="h-26 mb-20">
+                        </div>
                     </div>
-                {/each}
-            </div>
-            <p in:fly="{{x: -5, delay:500}}"class="">Total Price = {cartPrice}</p>
-        {/if}
-    {/key}
-    {#if cartItems.length >= 1}
-        
-        <CheckoutButton/>
-    {/if}
+                    <p class="absolute bottom-14 text-brown font-medium text-lg">Total Price = ${cartPrice}0</p>
+                </div>
+            {/if}
+            {/key}
+            {#if cartItems.length >= 1}
+            <CheckoutButton/>
+            {/if}
     </div>
 {/if}
 

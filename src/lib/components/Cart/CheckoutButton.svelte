@@ -5,7 +5,7 @@ let checkoutUrl;
 async function goCheckout() {
    if(typeof window != 'undefined'){
         checkoutUrl = await JSON.parse(localStorage.getItem('checkoutUrl') || '');
-        window.open(checkoutUrl, '_blank');
+        window.open(checkoutUrl);
    } 
 
 }
@@ -13,7 +13,6 @@ async function goCheckout() {
 
 <button 
     on:click={() => goCheckout()}
-    in:fly="{{x:-5, delay:500}}"
-    class="self-end bg-brown text-white font-bold text-2xl w-full h-fit">
+    class="self-end bg-brown text-white font-bold text-2xl w-full h-fit absolute bottom-2 py-1">
 Checkout
 </button>

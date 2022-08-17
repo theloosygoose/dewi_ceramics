@@ -19,9 +19,9 @@
             <div class="h-[200px] overflow-hidden justify-center">
                 <img class="h-full w-full object-cover object-center" loading='lazy' srcset="{product.imageSrc}" alt="{product.handle}">
             </div>
-            <div class="p-2 flex-col justify-between ml-1 mr-3">
-                <p class="text-black text-m font-semibold">{product.title}</p>
-                <p class="text-black text-m font-medium">${product.price}</p>
+            <div class="p-1 py-3 flex-col justify-between ml-1">
+                <p class="text-brown text-m font-semibold">{product.title}</p>
+                <p class="text-brown text-m font-semibold">${product.price}0</p>
             </div>
         </div>
     </a>

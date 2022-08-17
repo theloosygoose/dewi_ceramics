@@ -41,7 +41,7 @@ const tagFilterHandler = (typeName:string, typeColor:string) =>{
 <section class="min-h-[300px] md:h-[600px] bg-pottery-mobile-img bg-center bg-cover bg-no-repeat flex justify-center items-center">
     {#key tagFilterName}
     <h2 
-        class="h-fit text-white italic font-extrabold tracking-wide px-5 py-3 text-4xl"
+        class="h-fit text-tan italic font-extrabold tracking-wide px-5 py-3 text-4xl"
         style="background-color: {tagFilterColor};"
         in:fade="{{easing: quintInOut, duration:600}}"
     >{tagFilterName}</h2>
