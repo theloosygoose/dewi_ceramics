@@ -19,7 +19,7 @@ export async function GET({params}:{handle:string}){
 
     const res_types = await getTypes();
     const typesList = await res_types.body.productTypes.edges.map((tag: { node: string; }, i: number) =>{
-        const colors = ['#5A85F1', '#58CB4E', '#D945C1', '#FE794F', '#49C1AC', '#5F4ECB'];
+        const colors = ['#5A85F1', '#5bad53', '#D945C1', '#FE794F', '#49C1AC', '#5F4ECB'];
         return {
             name: tag.node,
             color: colors[i]

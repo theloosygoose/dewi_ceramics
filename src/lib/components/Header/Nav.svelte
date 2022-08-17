@@ -10,7 +10,7 @@ isMenuOpenStore.subscribe(isOpen => isMenuOpen = isOpen)
 </script>
 {#if isMenuOpen}
     <nav in:slide="{{duration: 600, easing: backOut}}"  out:slide="{{duration:1000, easing: expoOut, delay: 500}}" 
-        class="z-50 flex justify-center align-center w-full h-fit fixed overflow-hidden bg-tan">
+        class="z-50 flex justify-center align-center w-full h-fit fixed overflow-hidden bg-tan drop-shadow-md">
         <ul in:fade="{{duration:300, delay:700}}" out:fade="{{duration:300}}"
         class="text-brown">
             <li class="pt-5 pb-5 text-center">
