@@ -10,6 +10,6 @@ showAlert.subscribe((d)=> show = d);
 
 {#if show}
 <div  in:fly="{{y:-5, duration:400, easing: backInOut}}" out:fly="{{y:-5, duration:400, easing: backInOut}}" class="bg-red w-full fixed z-50 text-white font-extrabold text-lg mx-auto text-center">
-    CANT HAVE TWO OF THE SAME ITEM
+    DUE TO THE RARITY OF EACH ITEM YOU MAY ONLY BUY ONE OF EACH!
 </div>
 {/if}

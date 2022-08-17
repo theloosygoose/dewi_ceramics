@@ -32,11 +32,15 @@ cartItemsStore.subscribe((items) => {
             grid grid-cols-1 grid-row">
     {#key cartItems}
         {#if cartItems.length < 1}
-            <p> Put Something Here Please</p>
+            <div class="m-auto my-4">
+                <h1 class="text-xl font-bold text-brown leading-normal">HEY! Your Cart is Empty</h1>
+                <a href="/store" class="text-brown" > Click <u class="text-red"> Me</u> to Look at Some Pots!</a>
+
+            </div>
         {:else}
             <div class="flex-col">
                 {#each cartItems as item, i}
-                    <div class="flex justify-between items-end" >
+                    <div class="flex justify-between items-end py-2" >
                         <img width='50px' src="{item.node.merchandise.product.images.edges[0].node.originalSrc}" alt="">
                         <h1 class="text-lg text-brown font-semibold">{item.node.merchandise.product.title}</h1>
                         <h2>{item.node.estimatedCost.subtotalAmount.amount}</h2>

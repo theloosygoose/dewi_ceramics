@@ -30,11 +30,15 @@ module.exports = {
       backgroundImage: {
         'hero-mobile-img': "url('/images/hero-min.jpg')",
         'store-mobile-img': "url('/images/store-min.jpg')",
-        'mywork-mobile-img': "url('/images/mywork-min.jpg')",
+        'mywork-mobile-img': "url('/images/about-me.webp')",
         'hero-desktop-img': "url('/images/hero.jpg')",
         'store-desktop-img': "url('/images/store.jpg')",
-        'mywork-desktop-img': "url('/images/mywork.jpg')",
+        'mywork-desktop-img': "url('/images/about-me.webp')",
         'pottery-mobile-img': "url('/images/pottery.png')",
+        'choices-collection-desktop-img': "url('/images/choices-collection.png')",
+        'choices-collection-mobile-img': "url('/images/choices-collection.png')",
+        'maine-collection-desktop-img': "url('/images/maine-collection.webp')",
+        'maine-collection-mobile-img': "url('/images/maine-collection.webp')"
       },    
       colors: {
         'brown': '#47291C',
@@ -47,7 +51,8 @@ module.exports = {
         'orange': '#FE794F',
         'teal': '#49C1AC',
         'light-tan': '#E9E5D9',
-        'grey': '#1E1E1E'
+        'grey': '#1E1E1E',
+        'product': '#e2dccd'
       },
     },
   },

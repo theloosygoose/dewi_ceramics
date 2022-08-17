@@ -7,7 +7,7 @@ export let merchandiseId:string;
 export let lineId:string;
 
 let removeLoading = false;
-async function removeItem(merchandiseId, lineId) {
+async function removeItem(merchandiseId: string, lineId: string) {
     removeLoading = true
     let cartId;
 

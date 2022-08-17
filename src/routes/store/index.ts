@@ -16,7 +16,7 @@ export async function GET() {
         images: { 
             edges: { 
                 node: { 
-                    src: string; 
+                    transformedSrc: string; 
                 }; 
             }[]; 
         }; 

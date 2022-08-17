@@ -50,7 +50,7 @@ const tagFilterHandler = (typeName:string, typeColor:string) =>{
 
 </section>
 <section class="mb-4 tags mx-[5%]">
-    <div class="text-brown italic font-bold tracking-normal mt-5 text-xl">tags:</div>
+    <div class="text-brown italic font-bold tracking-normal mt-5 text-xl">search for: <div>
     <div class="flex-wrap">
         <Tag color='#EF493F' name='all' on:click={() => tagFilterHandler('all', '#EF493F')}/>
         {#each typesList as tag}
