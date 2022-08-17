@@ -6,7 +6,7 @@
 </script>
 
 <div>
-    <a href="/store" class="text-brown text-lg italic font-extrabold hover:text-tan"> Back to Products</a>
+    <a href="/store/all" class="text-brown text-lg italic font-extrabold hover:text-tan"> Back to Products</a>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div class="h-[350px] sm:h-[400px] md:h-[600px] w-full self-center justify-self-center">
             <img class="h-full w-full object-cover object-center" src="{singleProduct.images[0].node.src}" alt="">

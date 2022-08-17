@@ -17,7 +17,10 @@ isMenuOpenStore.subscribe(isOpen => isMenuOpen = isOpen)
                 <a sveltekit:prefetch class="text-brown font-extrabold tracking-normal text-2xl" on:click="{menuHandler}" href="/">Home</a>
             </li>
             <li class="pb-5 text-center">
-                <a sveltekit:prefetch class="text-brown font-extrabold tracking-normal text-2xl" on:click="{menuHandler}" href="/store">Shop All</a>
+                <a sveltekit:prefetch class="text-brown font-extrabold tracking-normal text-2xl" on:click="{menuHandler}" href="/store">Store</a>
+            </li>
+            <li class="pb-5 text-center">
+                <a sveltekit:prefetch class="text-brown font-extrabold tracking-normal text-2xl" on:click="{menuHandler}" href="/store/all">All Pottery</a>
             </li>
             <li class="pb-5 text-center">
                 <a sveltekit:prefetch class="text-brown font-extrabold tracking-normal text-2xl" on:click="{menuHandler}" href="#">My Work</a>

@@ -54,6 +54,9 @@ module.exports = {
         'grey': '#1E1E1E',
         'product': '#e2dccd'
       },
+      screens: {
+        'xs': '320px',
+      },
     },
   },
   plugins: [],
