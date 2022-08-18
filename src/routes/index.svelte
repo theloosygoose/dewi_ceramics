@@ -47,7 +47,7 @@
         </div>
     </a>
     <div class="mx-5 mt-5">
-        <h1 class="mx-auto w-full bg-product text-brown font-extrabold  text-4xl md:text-5xl lg:text-7xl text-center tracking-normal leading-[1]">FEATURED <br> COLLECTIONS</h1>
+        <h2 class="mx-auto w-full bg-product text-brown font-extrabold  text-4xl md:text-5xl lg:text-7xl text-center tracking-normal leading-[1]">FEATURED <br> COLLECTIONS</h2>
         <div class="mt-5 grid w-full md:grid-cols-2 grid-cols-1 gap-4">
         {#each collections as collection, i}
             <div class="w-full">
