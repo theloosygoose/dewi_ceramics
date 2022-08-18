@@ -60,6 +60,27 @@ export async function getAllProducts() {
     })
 }
 
+export async function getAllCollections() {
+  return postToShopify({
+    query: `
+    query getAllCollections{
+      collections(first: 10) {
+        edges {
+          node {
+            image {
+              transformedSrc(preferredContentType: WEBP, maxHeight: 800, crop: CENTER)
+            }
+            handle
+            id
+            title
+          }
+        }
+      }
+    }`,
+    variables: {}
+  });
+}
+
 export async function loadCart(cartId:string) {
     return postToShopify({
       query: `
