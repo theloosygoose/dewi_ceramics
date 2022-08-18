@@ -31,7 +31,7 @@
         </div>
     </a>
     <div class="mx-5 mt-5">
-        <h1 class="mx-auto w-full bg-product text-brown font-extrabold text-4xl xs:text-5xl lg:text-7xl text-center tracking-normal underline">COLLECTIONS</h1>
+        <h1 class="mx-auto w-full bg-product text-brown font-extrabold xs:text-4xl sm::text-5xl lg:text-7xl text-center tracking-normal underline">COLLECTIONS</h1>
         <div class="mt-5 grid w-full md:grid-cols-2 grid-cols-1 gap-4">
             <a href="/store/collections">
                 <div class="lg:bg-maine-collection-desktop-img bg-maine-collection-mobile-img bg-no-repeat bg-cover bg-center min-h-[500px]">
@@ -43,7 +43,7 @@
             <a href="/store/collections">
                 <div class="lg:bg-choices-collection-desktop-img bg-choices-collection-mobile-img bg-no-repeat bg-cover bg-left min-h-[500px]">
                     <div class="bg-orange w-fit">
-                        <p class="font-extrabold   py-2 px-6 text-5xl tracking-wide text-tan">rabbit's picks</p>
+                        <p class="font-extrabold   py-2 px-6 text-5xl tracking-wide text-tan leading-[1]">rabbit's <br> picks</p>
                     </div>
                 </div>
             </a>

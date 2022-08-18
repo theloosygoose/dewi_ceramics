@@ -37,11 +37,11 @@ async function addToCart() {
 </script>
 
 <button
-    class="h-fit self-center justify-self-center bg-brown text-white p-3 w-[70%] font-extrabold grid grid-cols-3 grid-rows-1 justify-center items-center"
+    class="relative h-fit self-center justify-self-center bg-brown text-white p-3 w-[70%] font-extrabold"
     on:click={addToCart}
     >
-    <span class="col-start-2">Add To Cart</span>
-    <svg class="col-start-3 ml-3"version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+    <span class="text-center">Add To Cart</span>
+    <svg class="absolute right-7 bottom-3"version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
         {#if cartLoading}
             <rect x="0" y="0" width="5" height="16" fill="#fff">
                 <animateTransform attributeType="xml"
@@ -61,7 +61,7 @@ async function addToCart() {
                 values="0 0; 0 20; 0 0"
                 begin="0.4s" dur="0.9s" repeatCount="indefinite" />
             </rect>
-       {/if}
+        {/if}
     </svg>
 
 </button>

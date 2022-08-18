@@ -14,7 +14,7 @@
         <div class="grid grid-cols-1 h-fit gap-2 mx-5">
             <div class="flex justify-start items-center">
                 <h1 class="text-5xl text-brown font-extrabold leading-[0.78] tracking-wide">{singleProduct.title}</h1>
-                <p class="text-m mx-6 px-2 py-1 bord w-fit h-fit text-white font-bold italic"
+                <p class="text-m mx-6 px-2 py-1 bord w-fit h-fit text-tan font-bold"
                 style="background-color: {productType.color};"
                 >{productType.name}</p>
             </div>

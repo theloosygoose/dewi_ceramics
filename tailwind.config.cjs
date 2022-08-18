@@ -34,7 +34,7 @@ module.exports = {
         'hero-desktop-img': "url('/images/hero.jpg')",
         'store-desktop-img': "url('/images/store.jpg')",
         'mywork-desktop-img': "url('/images/about-me.webp')",
-        'pottery-mobile-img': "url('/images/pottery.png')",
+        'pottery-mobile-img': "url('/images/pottery.webp')",
         'choices-collection-desktop-img': "url('/images/choices-collection.png')",
         'choices-collection-mobile-img': "url('/images/choices-collection.png')",
         'maine-collection-desktop-img': "url('/images/maine-collection.webp')",

@@ -1,5 +1,6 @@
 <script lang="ts">
     import '../app.css';
+    import { page } from '$app/stores';
 
     import Header from '$lib/components/Header/Header.svelte';
     import Footer from '$lib/components/Footer.svelte';
@@ -44,6 +45,6 @@
 <main class="bg-light-tan">
     <Header/> 
     <Alert/>
-    <slot/>
+        <slot/>
     <Footer/>
 </main>

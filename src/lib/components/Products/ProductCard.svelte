@@ -21,7 +21,7 @@
             </div>
             <div class="p-1 py-3 flex-col justify-between ml-1">
                 <p class="text-brown text-m font-semibold">{product.title}</p>
-                <p class="text-brown text-m font-semibold">${product.price}0</p>
+                <p class="text-brown text-2xl font-extrabold tracking-wider">${product.price}0</p>
             </div>
         </div>
     </a>

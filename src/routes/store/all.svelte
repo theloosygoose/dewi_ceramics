@@ -5,8 +5,8 @@ import type { Products, TagType } from "$lib/types";
 import ProductCard from "$lib/components/Products/ProductCard.svelte";
 import Tag from "$lib/components/Tag.svelte";
 
-import { fade } from "svelte/transition"
-import { quintInOut } from "svelte/easing";
+import { fade, fly } from "svelte/transition"
+import { backInOut, quintInOut } from "svelte/easing";
 
 export let products:Products = [];
 export let typesList:[TagType];
@@ -38,19 +38,20 @@ const tagFilterHandler = (typeName:string, typeColor:string) =>{
 
 </script>
 
-<section class="min-h-[300px] md:h-[600px] bg-pottery-mobile-img bg-center bg-cover bg-no-repeat flex justify-center items-center">
-    {#key tagFilterName}
-    <h2 
-        class="h-fit text-tan italic font-extrabold tracking-wide px-5 py-3 text-4xl"
-        style="background-color: {tagFilterColor};"
-        in:fade="{{easing: quintInOut, duration:600}}"
-    >{tagFilterName}</h2>
-        
-    {/key}
-
-</section>
+{#key tagFilterName}
+    <section class="relative h-[400px] md:h-[600px] flex justify-center items-center mb-5">
+        <img class="h-full w-full object-cover z-0 object-center" src="/images/pottery.webp" alt="">
+        <h2 
+            class="text-tan font-extrabold tracking-wide w-full px-5 py-3 text-4xl absolute text-center"
+            style="background-color: {tagFilterColor};"
+            in:fly={{y:-100, easing: backInOut, duration:800}}
+        >{tagFilterName}
+        </h2>
+    </section>
+{/key}
+<a class="mx-[5%] text-brown text-xl font-bold underline" href="/store">View All</a>
 <section class="mb-4 tags mx-[5%]">
-    <div class="text-brown italic font-bold tracking-normal mt-5 text-xl">search for: <div>
+    <div class="text-brown font-bold tracking-normal mt-5 text-xl">search for: <div>
     <div class="flex-wrap">
         <Tag text="lg" height="fit" width="fit" color='#EF493F' name='all' on:click={() => tagFilterHandler('all', '#EF493F')}/>
         {#each typesList as tag}
