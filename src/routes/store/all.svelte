@@ -38,17 +38,17 @@ const tagFilterHandler = (typeName:string, typeColor:string) =>{
 
 </script>
 
-{#key tagFilterName}
-    <section class="relative h-[400px] md:h-[600px] flex justify-center items-center mb-5">
-        <img class="h-full w-full object-cover z-0 object-center" src="/images/pottery.webp" alt="">
+<section class="relative h-[200px] md:h-[600px] flex justify-center items-center mb-5">
+    <img class="h-full w-full object-cover z-0 object-center" src="/images/pottery.webp" alt="">
+    {#key tagFilterName}
         <h2 
             class="text-tan font-extrabold tracking-wide w-full px-5 py-3 text-4xl absolute text-center"
             style="background-color: {tagFilterColor};"
             in:fly={{y:-100, easing: backInOut, duration:800}}
         >{tagFilterName}
         </h2>
+    {/key}
     </section>
-{/key}
 <a class="mx-[5%] text-brown text-xl font-bold underline" href="/store">View All</a>
 <section class="mb-4 tags mx-[5%]">
     <div class="text-brown font-bold tracking-normal mt-5 text-xl">search for: <div>

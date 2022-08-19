@@ -55,7 +55,7 @@ module.exports = {
         'product': '#e2dccd'
       },
       screens: {
-        'xs': '320px',
+        'xs': '325px',
       },
     },
   },

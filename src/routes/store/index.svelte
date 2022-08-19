@@ -36,13 +36,13 @@ export async function load({ fetch }){
             </a>
         </div>
         <h1 class="text-center text-4xl text-brown font-bold tracking-wide underline my-4">COLLECTIONS</h1>
-        <div class="mx-5 mt-5 grid md:grid-cols-2 grid-cols-1 gap-4">
+        <div class="mx-5 mt-5 grid md:grid-cols-3 grid-cols-2 grid-auto-rows-[3fr] gap-4">
             {#each collections as collection, i}
                 <div class="w-full">
                     <a href="/store/collections/{collection.node.handle}">
-                        <div style="background-image:url('{collection.node.image.transformedSrc}')" class="bg-no-repeat bg-cover bg-left h-[400px]">
-                            <div class="bg-orange w-fit">
-                                <p class="font-extrabold py-2 px-6 text-5xl tracking-wide text-tan leading-[1]">{collection.node.title}</p>
+                        <div style="background-image:url('{collection.node.image.transformedSrc}')" class="bg-no-repeat bg-cover bg-top h-[300px] relative">
+                            <div class="bg-orange absolute bottom-0">
+                                <h3 class="font-extrabold px-2 py-2 text-lg sm:text-2xl md:text-3xl text-left tracking-wide text-tan leading-[1]">{collection.node.title}</h3>
                             </div>
                         </div>
                     </a>

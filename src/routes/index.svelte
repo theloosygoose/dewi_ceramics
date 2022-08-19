@@ -14,23 +14,44 @@
 
 </script>
 <script lang="ts">
-    import { fly } from 'svelte/transition';
+    import viewport from '$lib/actions/useViewportAction';
+
+    import { fly,fade } from 'svelte/transition';
     import { onMount } from 'svelte';
 
     export let collections:any 
     
+    let articleView = false;
     let scroll:number;
     let ready = false;
-    onMount(() => {
+    onMount(async () => {
         ready = true;
+        await gsap.registerPlugin(ScrollTrigger)
     })
-</script>
+    let articleHeader: HTMLHeadingElement 
+    function scrollImage(node: gsap.TweenTarget){
+            gsap.to(node,{
+                scrollTrigger:{
+                    trigger: articleHeader,
+                    scrub:2,
+                },
+                y:700,
+                opacity: 1,
+                duration: 3
+            });
+    }   
 
+ </script>
+
+<svelte:head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
+</svelte:head>
 
 <svelte:window bind:scrollY={scroll}/>
-<div class="lg:bg-hero-desktop-img bg-hero-mobile-img bg-center bg-no-repeat bg-cover w-full h-[400px] md:h-[600px] lg:h-[80vh] flex items-end justify-left overflow-hidden">
+<div class="z-[1] relative lg:bg-hero-desktop-img bg-hero-mobile-img bg-[center] bg-no-repeat bg-cover w-full h-[80vh] flex items-end justify-left overflow-hidden drop-shadow-md">
     {#if ready}
-        <h1 class="relative z-0 pl-5 pb-5 text-6xl sm:text-7xl md:text-9xl font-extrabold tracking-normal leading-[0.78] text-white drop-shadow-lg"
+        <h1 class="relative z-0 ml-[5%] mb-[10%] text-6xl xs:text-7xl md:text-9xl font-extrabold tracking-normal leading-[0.78] text-white drop-shadow-lg"
             style:transform={`translate3d(0, -${scroll*1.2}px, 0)`}
             in:fly="{{y:50, delay:500, duration:700}}">
                     DEWI <br> CERAMICS 
@@ -38,11 +59,32 @@
     {/if}
 </div>
 
-<section class="flex-col">
+<div href="#store_page" class="flex gap-2 justify-center mt-8 relative">
+    <img class="animate-bounce pt-2" src="/icons/arrow_down.svg" alt="See More Below">
+    <p class="text-xl text-brown font-medium tracking-wide">Scroll to Learn More</p>
+</div>
+
+<div class="relative overflow-hidden">
+    <article class="my-24 relative z-20 overflow-x-hidden" use:viewport on:enterViewport={() => {return articleView = true}} >
+        {#if articleView }
+        <h2 bind:this="{articleHeader}" in:fly="{{x:-100, delay:700, duration:700}}" class="mx-[5%] z-30 relative text-5xl xs:text-6xl md:text-7xl lg:text-8xl text-brown font-bold tracking-normal leading-[1]">Buy Independent, Not Big Business</h2>
+        <p  in:fly="{{x:100,delay:1200,duration:700}}" class="mx-[5%] z-30 relative text-xl text-brown font-medium tracking-wide mt-2">I'm an independent ceramist making fun mugs, bowls, teacups, teapots, vases, and more!</p>
+        {:else}
+            <div class="h-[40vh]"></div>
+        {/if}
+    </article>
+    {#if articleView}
+        <div class="drop-shadow-2xl z-[0] absolute w-[200px] h-[200px] -right-10 -top-[100px] md:right-10 md:-bottom-40" >
+            <img use:scrollImage class="opacity-0 w-full h-full object-center object-cover rounded-full"  height="50" src="/images/dewi_photo_1.webp" alt="Dewi Hiking">
+        </div>
+    {/if}
+</div>
+    
+<section class="flex-col relative z-10">
     <a sveltekit:prefetch href="/store">
         <div class="mt-5 lg:bg-store-desktop-img bg-store-mobile-img bg-no-repeat bg-cover bg-center min-h-[500px]">
             <div class="bg-red w-fit">
-                <p class="font-extrabold   py-2 px-6 text-5xl tracking-wide text-tan">store.</p>
+                <p class="font-extrabold  py-2 px-6 text-5xl tracking-wide text-tan">store.</p>
             </div>
         </div>
     </a>
@@ -52,9 +94,9 @@
         {#each collections as collection, i}
             <div class="w-full">
                 <a sveltekit:prefetch href="/store/collections/{collection.node.handle}">
-                    <div style="background-image:url('{collection.node.image.transformedSrc}')" class="bg-no-repeat bg-cover bg-top bg-left h-[400px]">
+                    <div style="background-image:url('{collection.node.image.transformedSrc}')" class="bg-no-repeat bg-cover bg-top h-[400px] ">
                         <div class="bg-orange w-fit">
-                            <p class="font-extrabold py-2 px-6 text-5xl tracking-wide text-tan leading-[1]">{collection.node.title}</p>
+                            <h3 class="font-extrabold py-2 px-6 text-4xl tracking-wide text-tan leading-[1]">{collection.node.title}</h3>
                         </div>
                     </div>
                 </a>

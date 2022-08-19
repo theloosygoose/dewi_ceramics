@@ -28,7 +28,7 @@ cartItemsStore.subscribe((items) => {
 {#if isCartOpen}
     <div 
     in:slide="{{duration:1000, easing:expoOut}}" out:slide="{{duration:600, easing:expoOut}}"
-    class="z-10 bg-tan w-full fixed right-0 drop-shadow-2xl p-2 grid grid-col-1">
+    class="z-50 bg-tan w-full fixed right-0 drop-shadow-2xl p-2 grid grid-col-1">
             {#key cartItems}
             {#if cartItems.length < 1}
                 <div class="my-4 justify-self-center self-center">

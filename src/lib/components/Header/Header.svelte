@@ -21,7 +21,7 @@ isCartOpenStore.subscribe(isOpen => isCartOpen = isOpen)
 
 </script>
 
-<header class="sticky top-0 z-10 flex justify-center items-center p-5 h-[4.5rem] bg-tan drop-shadow-md">
+<header class="sticky top-0 z-50 flex justify-center items-center p-5 h-[4.5rem] bg-tan drop-shadow-md">
     {#key isMenuOpen}
         <button class="text-brown absolute left-3 top-4.05 pr-2 text-xl font-extrabold tracking-normal" 
         on:click={menuHandler}

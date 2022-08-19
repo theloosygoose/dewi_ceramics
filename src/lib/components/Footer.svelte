@@ -2,7 +2,7 @@
 
 </script>
 <footer class="mt-2 p-5 text-center lg:text-left bg-grey text-white">
-    <div class="flex gap-5 justify-center align-center">
+    <div class="flex justify-center align-center">
     <a href="https://www.instagram.com/dewi.ceramics/" class="text-white">
         <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram"
         class="w-6" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -11,7 +11,7 @@
         </path>
         </svg>
     </a>
-    <a href="https://github.com/theloosygoose/dewi_ceramics" class="text-white">
+    <a href="https://github.com/theloosygoose/dewi_ceramics" class="text-white ml-4">
       <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github"
         class="w-6" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
         <path fill="currentColor"
