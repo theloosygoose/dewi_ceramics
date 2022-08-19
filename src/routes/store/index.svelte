@@ -21,6 +21,19 @@ export async function load({ fetch }){
     export let collections:any;
     console.log(collections)
 </script>
+<svelte:head>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="www.dewiceramics.netlify.app/store">
+    <meta property="og:title" content="Dewi Ceramics Store">
+    <meta property="og:description" content="Look at All Dewi Ceramics Products or Browse Collections">
+    <meta property="og:image" content="/icons/logolarge.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="www.dewiceramics.netlify.app/store">
+    <meta property="twitter:title" content="Dewi Ceramics Store">
+    <meta property="twitter:description" content="Look at All Dewi Ceramics Products or Browse Collections">
+    <meta property="twitter:image" content="/icons/logolarge.png">
+ </svelte:head>
 
 <div class="overflow-x-hidden overflow-y-hidden">
     <h1 class="text-5xl md:text-6xl lg:text-7xl text-brown font-extrabold tracking-normal text-center underline">STORE</h1>

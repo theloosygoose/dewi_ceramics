@@ -32,6 +32,20 @@
 
  </script>
 
+ <svelte:head>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="www.dewiceramics.netlify.app">
+    <meta property="og:title" content="Dewi Ceramics">
+    <meta property="og:description" content="Ceramics and pottery handcrafted by Dewi Henry in Philadelphia, PA. Shop for mugs, pots, teacups, and more.">
+    <meta property="og:image" content="/icons/logolarge.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="www.dewiceramics.netlify.app">
+    <meta property="twitter:title" content="Dewi Ceramics">
+    <meta property="twitter:description" content="Ceramics and pottery handcrafted by Dewi Henry in Philadelphia, PA. Shop for mugs, pots, teacups, and more.">
+    <meta property="twitter:image" content="/icons/logolarge.png">
+ </svelte:head>
+
 
 <svelte:window bind:scrollY={scroll}/>
 <div class="z-[1] relative lg:bg-hero-desktop-img bg-hero-mobile-img bg-[center] bg-no-repeat bg-cover w-full h-[80vh] flex items-end justify-left overflow-hidden drop-shadow-md">

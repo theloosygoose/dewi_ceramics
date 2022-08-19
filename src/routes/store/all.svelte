@@ -37,6 +37,19 @@ const tagFilterHandler = (typeName:string, typeColor:string) =>{
 
 
 </script>
+<svelte:head>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="www.dewiceramics.netlify.app/store/all">
+    <meta property="og:title" content="Dewi Ceramics Shop All">
+    <meta property="og:description" content="Browse the entire Dewi Ceramics Collection">
+    <meta property="og:image" content="/icons/logolarge.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="www.dewiceramics.netlify.app/all">
+    <meta property="twitter:title" content="Dewi Ceramics Shop All">
+    <meta property="twitter:description" content="Browse the entire Dewi Ceramics Collection">
+    <meta property="twitter:image" content="/icons/logolarge.png">
+</svelte:head>
 
 <section class="relative h-[200px] md:h-[600px] flex justify-center items-center mb-5">
     <img class="h-full w-full object-cover z-0 object-center" src="/images/pottery.webp" alt="">
