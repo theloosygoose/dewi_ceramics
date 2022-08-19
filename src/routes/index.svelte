@@ -26,27 +26,12 @@
     let ready = false;
     onMount(async () => {
         ready = true;
-        await gsap.registerPlugin(ScrollTrigger)
+
     })
-    let articleHeader: HTMLHeadingElement 
-    function scrollImage(node: gsap.TweenTarget){
-            gsap.to(node,{
-                scrollTrigger:{
-                    trigger: articleHeader,
-                    scrub:2,
-                },
-                y:700,
-                opacity: 1,
-                duration: 3
-            });
-    }   
+  
 
  </script>
 
-<svelte:head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
-</svelte:head>
 
 <svelte:window bind:scrollY={scroll}/>
 <div class="z-[1] relative lg:bg-hero-desktop-img bg-hero-mobile-img bg-[center] bg-no-repeat bg-cover w-full h-[80vh] flex items-end justify-left overflow-hidden drop-shadow-md">
@@ -67,17 +52,17 @@
 <div class="relative overflow-hidden">
     <article class="my-24 relative z-20 overflow-x-hidden" use:viewport on:enterViewport={() => {return articleView = true}} >
         {#if articleView }
-        <h2 bind:this="{articleHeader}" in:fly="{{x:-100, delay:700, duration:700}}" class="mx-[5%] z-30 relative text-5xl xs:text-6xl md:text-7xl lg:text-8xl text-brown font-bold tracking-normal leading-[1]">Buy Independent, Not Big Business</h2>
+        <h2 in:fly="{{x:-100, delay:700, duration:700}}" class="mx-[5%] z-30 relative text-5xl xs:text-6xl md:text-7xl lg:text-8xl text-brown font-bold tracking-normal leading-[1]">Buy Independent, Not Big Business</h2>
         <p  in:fly="{{x:100,delay:1200,duration:700}}" class="mx-[5%] z-30 relative text-xl text-brown font-medium tracking-wide mt-2">I'm an independent ceramist making fun mugs, bowls, teacups, teapots, vases, and more!</p>
         {:else}
             <div class="h-[40vh]"></div>
         {/if}
     </article>
-    {#if articleView}
-        <div class="drop-shadow-2xl z-[0] absolute w-[200px] h-[200px] -right-10 -top-[100px] md:right-10 md:-bottom-40" >
-            <img use:scrollImage class="opacity-0 w-full h-full object-center object-cover rounded-full"  height="50" src="/images/dewi_photo_1.webp" alt="Dewi Hiking">
+    <!-- {#if articleView}
+        <div class="drop-shadow-2xl z-[0] absolute w-[200px] h-[200px] -right-10 -top-[20px] md:right-10 md:-bottom-40" >
+            <img use:scrollImage use:fadeOnTigger class="opacity-0 w-full h-full object-center object-cover rounded-full"  height="50" src="/images/dewi_photo_1.webp" alt="Dewi Hiking">
         </div>
-    {/if}
+    {/if} -->
 </div>
     
 <section class="flex-col relative z-10">
