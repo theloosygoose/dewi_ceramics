@@ -1,4 +1,3 @@
-import ProductCard from "$lib/components/Products/ProductCard.svelte";
 import { getProduct, getTypes} from "$lib/utils/shopify";
 
 export async function GET({params}:{handle:string}){
@@ -14,6 +13,7 @@ export async function GET({params}:{handle:string}){
         description: resSingleProduct.description,
         variantId: resSingleProduct.variants.edges[0].node.id,
         price: resSingleProduct.variants.edges[0].node.price,
+        collections: resSingleProduct.collections.edges,
         productType: resSingleProduct.productType
     } 
 

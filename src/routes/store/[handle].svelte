@@ -18,9 +18,15 @@
                 style="background-color: {productType.color};"
                 >{productType.name}</p>
             </div>
-
+            
             <p class="ml-4 mt-2 text-gray-900 font-medium tracking-normal self-start justify-self-center leading-snug">{singleProduct.description}</p>
             <h2 class="text-brown font-bold text-3xl self-start">${singleProduct.price}</h2>
+            <div class="ml-4 mt-2 text-brown">
+                <h1 class="text-xl font-bold">Found In:</h1>
+                {#each singleProduct.collections as collection }
+                <a href="/store/collections/{collection.node.handle}">{collection.node.title} Collection</a>
+                {/each}
+            </div>
             <AddToCart {singleProduct}/>
         </div>
     </div>

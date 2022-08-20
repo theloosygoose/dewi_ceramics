@@ -61,7 +61,7 @@ const tagFilterHandler = (typeName:string, typeColor:string) =>{
         >{tagFilterName}
         </h2>
     {/key}
-    </section>
+</section>
 <a class="mx-[5%] text-brown text-xl font-bold underline" href="/store">View All</a>
 <section class="mb-4 tags mx-[5%]">
     <div class="text-brown font-bold tracking-normal mt-5 text-xl">search for: <div>

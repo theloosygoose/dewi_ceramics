@@ -4,7 +4,8 @@ export type Product = {
     handle?: string,
     price?: string,
     imageSrc?: string,
-    productType?: string
+    productType?: string,
+    quantity?: number 
 }
 export type Products = Array<Product> | [];
 

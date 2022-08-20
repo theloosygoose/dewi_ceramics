@@ -51,6 +51,13 @@ export async function getAllProducts() {
                   }
                   productType
                   title
+                  variants(first: 1) {
+                    edges {
+                      node {
+                        quantityAvailable
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -149,6 +156,14 @@ export async function getProduct(handle:string) {
               handle
               title
               productType
+              collections(first: 10) {
+                edges {
+                  node {
+                    title
+                    handle
+                  }
+                }
+              }
               images(first: 5) {
                 edges {
                   node {
@@ -272,5 +287,46 @@ export async function getTypes(){
     
   `,
   variables: {}
+  })
+}
+
+export async function getCollectionItems(handle:string) {
+  return postToShopify({
+      query:`
+      query getCollectionItems($handle: String!) {
+        collection(handle: $handle) {
+          handle
+          description
+          title
+          image {
+            transformedSrc(preferredContentType: WEBP, maxHeight: 500, crop: CENTER)
+          }
+          products(first: 100) {
+            edges {
+              node {
+                totalInventory
+                title
+                productType
+                handle
+                images(first: 1) {
+                  edges {
+                    node {
+                      transformedSrc(maxHeight: 300, crop: CENTER, preferredContentType: WEBP)
+                    }
+                  }
+                }
+                priceRange {
+                  minVariantPrice {
+                    amount
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      
+      `,
+      variables: {handle}
   })
 }
