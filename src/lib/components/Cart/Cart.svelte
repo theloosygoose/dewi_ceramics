@@ -40,7 +40,7 @@ cartItemsStore.subscribe((items) => {
                 <div class="static">
                         <div class="flex-col">
                             {#each cartItems as item, i}
-                                <div class="grid grid-cols-4 items-end py-2 border-b-brown border" >
+                                <div class="grid grid-cols-4 items-end py-6 border-b-brown border" >
                                     <img class="rounded" width='50px' src="{item.node.merchandise.product.images.edges[0].node.originalSrc}" alt="">
                                     <h1 class="text-lg text-brown font-semibold leading-[1.2]">{item.node.merchandise.product.title}</h1>
                                     <h2 class="text-right text-brown font-medium">${item.node.estimatedCost.subtotalAmount.amount}0</h2>
@@ -50,7 +50,7 @@ cartItemsStore.subscribe((items) => {
                             <div class="h-26 mb-20">
                             </div>
                         </div>
-                        <p class="absolute bottom-14 text-brown font-medium text-lg">Total Price = ${cartPrice}0</p>
+                        <p class="absolute bottom-14 text-brown font-medium text-lg">Total Price = <b>${cartPrice}0</b></p>
                     </div>
             {/if}
             {/key}

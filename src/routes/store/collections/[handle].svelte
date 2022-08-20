@@ -1,5 +1,5 @@
 <script lang="ts">
-import ProductCard from "$lib/components/Products/ProductCard.svelte";
+import ProductCard from "$lib/components/Cards/ProductCard.svelte";
 import type { Product, TagType } from "$lib/types";
 import { fade } from "svelte/transition";
 import { quintInOut } from "svelte/easing";

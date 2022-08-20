@@ -43,19 +43,19 @@ async function addToCart() {
     <span class="text-center">Add To Cart</span>
     <svg class="absolute right-7 bottom-3"version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
         {#if cartLoading}
-            <rect x="0" y="0" width="5" height="16" fill="#fff">
+            <rect x="0" y="0" width="5" height="16" fill="#ef493f">
                 <animateTransform attributeType="xml"
                 attributeName="transform" type="translate"
                 values="0 0; 0 20; 0 0"
                 begin="0" dur="0.9s" repeatCount="indefinite" />
             </rect>
-            <rect x="6" y="0" width="5" height="16" fill="#fff">
+            <rect x="6" y="0" width="5" height="16" fill="#5a85f1">
                 <animateTransform attributeType="xml"
                 attributeName="transform" type="translate"
                 values="0 0; 0 20; 0 0"
                 begin="0.2s" dur="0.9s" repeatCount="indefinite" />
             </rect>
-            <rect x="12" y="0" width="5" height="16" fill="#fff">
+            <rect x="12" y="0" width="5" height="16" fill="#5bad53">
                 <animateTransform attributeType="xml"
                 attributeName="transform" type="translate"
                 values="0 0; 0 20; 0 0"

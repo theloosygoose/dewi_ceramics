@@ -2,7 +2,7 @@
 <script lang="ts">
 import type { Products, TagType } from "$lib/types";
 
-import ProductCard from "$lib/components/Products/ProductCard.svelte";
+import ProductCard from "$lib/components/Cards/ProductCard.svelte";
 import Tag from "$lib/components/Tag.svelte";
 
 import { fade, fly } from "svelte/transition"

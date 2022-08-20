@@ -16,6 +16,7 @@ export async function load({ fetch }){
 <script lang="ts">
     import { fly } from "svelte/transition";
     import { quartOut } from "svelte/easing";
+import CollectionCard from "$lib/components/Cards/CollectionCard.svelte";
 
 
     export let collections:any;
@@ -36,7 +37,6 @@ export async function load({ fetch }){
  </svelte:head>
 
 <div class="overflow-x-hidden overflow-y-hidden">
-    <h1 class="text-5xl md:text-6xl lg:text-7xl text-brown font-extrabold tracking-normal text-center underline">STORE</h1>
     <div class="flex-col">
         <div class="bg-red mt-5">
             <a sveltekit:prefetch href="/store/all" class=" md:mx-[15%] grid grid-cols-2 bg-red">
@@ -48,18 +48,10 @@ export async function load({ fetch }){
                 </div>
             </a>
         </div>
-        <h1 class="text-center text-4xl text-brown font-bold tracking-wide underline my-4">COLLECTIONS</h1>
+        <h1 class="text-center text-lg sm:text-2xl md:text-3xl lg:text-6xl text-brown font-bold tracking-wide underline my-4">COLLECTIONS</h1>
         <div class="mx-5 mt-5 grid md:grid-cols-3 grid-cols-2 grid-auto-rows-[3fr] gap-4">
             {#each collections as collection, i}
-                <div class="w-full">
-                    <a href="/store/collections/{collection.node.handle}">
-                        <div style="background-image:url('{collection.node.image.transformedSrc}')" class="bg-no-repeat bg-cover bg-top h-[300px] relative">
-                            <div class="bg-orange absolute bottom-0">
-                                <h3 class="font-extrabold px-2 py-2 text-lg sm:text-2xl md:text-3xl text-left tracking-wide text-tan leading-[1]">{collection.node.title}</h3>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+            <CollectionCard {collection} />
             {/each}
         </div>
     </div>
