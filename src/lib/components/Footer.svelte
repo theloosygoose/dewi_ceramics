@@ -1,7 +1,7 @@
 <script>
 
 </script>
-<footer class="mt-2 p-5 text-center lg:text-left bg-grey text-white">
+<div class="mt-2 p-5 text-center lg:text-left bg-grey text-white">
     <div class="flex justify-center align-center">
     <a href="https://www.instagram.com/dewi.ceramics/" class="text-white">
         <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram"
@@ -45,11 +45,17 @@
           <p class="mb-4">
             <a href="/store" class="text-white">Store</a>
           </p>
-          <p class="mb-2">
+          <p class="mb-4">
             <a href="#!" class="text-white">My Work</a>
+          </p>
+          <p class="mb-4">
+            <a href="/store/all" class="text-white">All Products</a>
+          </p>
+          <p class="mb-4">
+            <a href="/" class="text-white">Home</a>
           </p>
         </div>
       </div>
     </div>
-    <a href="https://github.com/theloosygoose" class="text-sm">Made by Gusti Rama Henry</a>
-  </footer>
+    <a class="absolute right-0 text-sm underline" href="https://github.com/theloosygoose">Website Made by Gusti Rama Henry</a>
+  </div>

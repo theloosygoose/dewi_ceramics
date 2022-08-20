@@ -37,7 +37,7 @@ async function addToCart() {
 </script>
 
 <button
-    class="relative h-fit self-center justify-self-center bg-brown text-white p-3 w-[70%] font-extrabold"
+    class="relative h-fit self-start justify-self-center lg:justify-self-start bg-brown text-white p-3 w-[90%] lg:w-[70%] font-extrabold"
     on:click={addToCart}
     >
     <span class="text-center">Add To Cart</span>
