@@ -1,10 +1,17 @@
 <script lang="ts">
     import AddToCart from "$lib/components/Cart/AddToCart.svelte";
-
+    import Carousel from "svelte-flickity";
+    
     export let singleProduct:any;
     export let productType:any;
 
-    console.log(singleProduct.collections.length)
+	const options = {
+        draggable: true,
+        wrapAround: true,
+        prevNextButtons: false,
+        lazyLoad: 1
+	};
+
 </script>
 
 <svelte:head>
@@ -19,14 +26,22 @@
     <meta property="twitter:title" content="Dewi Ceramics Product {singleProduct.title}">
     <meta property="twitter:description" content="{singleProduct.description}">
     <meta property="twitter:image" content="/icons/logolarge.png">
+
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 </svelte:head>
 
 <div>
     <a href="/store/all" class="text-brown text-lg italic font-extrabold hover:text-tan"> Back to Products</a>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 relative mb-[20vh] md:mt-16">
-        <div class="h-[350px] sm:h-[400px] md:h-[600px] lg:h-[900px] w-full self-center justify-self-center">
-            <img class="h-full w-full object-cover object-center" src="{singleProduct.images[0].node.src}" alt="">
-        </div>
+        <Carousel {options} >
+            {#each singleProduct.images as image }
+                <div class="w-full h-[350px] sm:h-[400px] md:h-[600px] lg:h-[900px] m-auto"  >
+                    <img class="h-full w-full object-cover object-center" src="{image.node.src}" alt="">
+                </div>
+            {/each}
+        </Carousel> 
+            
         <div class="grid grid-cols-1 h-fit gap-2 mx-5 lg:ml-[10%]">
             <div class="flex justify-start items-center">
                 <h1 class="text-5xl text-brown font-extrabold leading-[0.78] tracking-wide">{singleProduct.title}</h1>

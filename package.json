@@ -30,6 +30,6 @@
 	"type": "module",
 	"dependencies": {
 		"env-cmd": "^10.1.0",
-		"gsap": "^3.11.0"
+		"svelte-flickity": "^1.1.3"
 	}
 }
