@@ -1,15 +1,13 @@
 <script lang="ts">
-import ProductCard from "$lib/components/Cards/ProductCard.svelte";
-import type { Product, TagType } from "$lib/types";
-import { fade } from "svelte/transition";
-import { quintInOut } from "svelte/easing";
+    import ProductCard from "$lib/components/Cards/ProductCard.svelte";
+    import type { Product, TagType } from "$lib/types";
+    import { fade } from "svelte/transition";
+    import { quintInOut } from "svelte/easing";
 
     export let collectionProducts:Array<Product>;
     export let collectionDetails:any;
     export let typesList:[TagType];
 
-    console.log(collectionDetails);
-    console.log(collectionProducts)
 </script>
 
 <section class="relative h-[150px] md:h-[400px] flex justify-center items-center mb-5">

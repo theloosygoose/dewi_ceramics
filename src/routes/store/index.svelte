@@ -16,11 +16,10 @@ export async function load({ fetch }){
 <script lang="ts">
     import { fly } from "svelte/transition";
     import { quartOut } from "svelte/easing";
-import CollectionCard from "$lib/components/Cards/CollectionCard.svelte";
+    import CollectionCard from "$lib/components/Cards/CollectionCard.svelte";
 
 
     export let collections:any;
-    console.log(collections)
 </script>
 <svelte:head>
     <meta property="og:type" content="website">
@@ -38,8 +37,8 @@ import CollectionCard from "$lib/components/Cards/CollectionCard.svelte";
 
 <div class="overflow-x-hidden overflow-y-hidden">
     <div class="flex-col">
-        <div class="bg-red mt-5">
-            <a sveltekit:prefetch href="/store/all" class=" md:mx-[15%] grid grid-cols-2 bg-red">
+        <div class="bg-brown mt-5">
+            <a sveltekit:prefetch href="/store/all" class=" md:mx-[15%] grid grid-cols-2 bg-brown">
                 <div in:fly="{{x:-1000, duration:1000, opacity:1, delay:500, easing:quartOut}}" class="h-full grid grid-rows-2 justify-end items-start my-5 mr-[10%] md:mr-[20%] lg:mt-[20%]">
                     <h1 class="text-tan text-2xl sm:text-5xl lg:text-6xl font-extrabold tracking-normal leading-[1]">ALL <br> PRODUCTS</h1>
                     <p class="text-tan text-sm sm:text-lg  font-medium leading-[1]">Click Here to Browse<br>All Products</p>

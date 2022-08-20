@@ -98,6 +98,9 @@ export async function loadCart(cartId:string) {
                 totalAmount {
                 amount
                 }
+                subtotalAmount{
+                  amount
+                }
             }
             lines(first: 100) {
                 edges {
@@ -122,10 +125,7 @@ export async function loadCart(cartId:string) {
                             images(first: 1) {
                                 edges {
                                   node {
-                                    originalSrc
-                                    altText
-                                    width
-                                    height
+                                    transformedSrc(preferredContentType: WEBP, maxHeight: 100, crop: CENTER)
                                   }
                                 }
                               }

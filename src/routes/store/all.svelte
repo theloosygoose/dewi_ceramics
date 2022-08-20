@@ -13,12 +13,12 @@ export let typesList:[TagType];
 
 let filteredProducts = products;
 
-$: tagFilterName = 'all pottery';
-$: tagFilterColor = '#EF493F'
+$: tagFilterName = 'All pottery';
+$: tagFilterColor = '#DF2228'
 $: filterProducts = products;
 
 const tagFilterHandler = (typeName:string, typeColor:string) =>{
-    if (typeName != 'all') {
+    if (typeName != 'All') {
         tagFilterName = typeName;
         tagFilterColor = typeColor;
         if (typeof products != undefined || typeof filteredProducts != undefined){
@@ -29,8 +29,8 @@ const tagFilterHandler = (typeName:string, typeColor:string) =>{
 
     }
     else {
-        tagFilterName = 'all pottery';
-        tagFilterColor = '#EF493F';
+        tagFilterName = 'All Pottery';
+        tagFilterColor = '#DF2228';
         filteredProducts = products;
     }
 };
@@ -66,7 +66,7 @@ const tagFilterHandler = (typeName:string, typeColor:string) =>{
 <section class="mb-4 tags mx-[5%]">
     <div class="text-brown font-bold tracking-normal mt-5 text-xl">search for: <div>
     <div class="flex-wrap">
-        <Tag text="lg" height="fit" width="fit" color='#EF493F' name='all' on:click={() => tagFilterHandler('all', '#EF493F')}/>
+        <Tag text="lg" height="fit" width="fit" color='#DF2228' name='All' on:click={() => tagFilterHandler('All', '#DF2228')}/>
         {#each typesList as tag}
             <Tag text="lg" height="fit" width="fit" color={tag.color} name={tag.name} on:click={() => tagFilterHandler(`${tag.name}`, `${tag.color}`)}/>
         {/each}

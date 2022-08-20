@@ -13,12 +13,12 @@ isCartOpenStore.subscribe((isOpen) => isCartOpen = isOpen)
 let cartId:string;
 let response;
 let cartItems:[];
-let cartPrice:string
+let cartPrice:any;
 
 cartItemsStore.subscribe((items) => {
     if ('lines' in items) {
        cartItems = items.lines.edges;
-       cartPrice = items.estimatedCost.totalAmount.amount;
+       cartPrice = items.estimatedCost.subtotalAmount.amount;
     } else {
         cartItems = [];
     }
@@ -41,16 +41,17 @@ cartItemsStore.subscribe((items) => {
                         <div class="flex-col">
                             {#each cartItems as item, i}
                                 <div class="grid grid-cols-4 items-end py-6 border-b-brown border" >
-                                    <img class="rounded" width='50px' src="{item.node.merchandise.product.images.edges[0].node.originalSrc}" alt="">
+                                    <img class="rounded" width='50px' src="{item.node.merchandise.product.images.edges[0].node.transformedSrc}" alt="">
                                     <h1 class="text-lg text-brown font-semibold leading-[1.2]">{item.node.merchandise.product.title}</h1>
                                     <h2 class="text-right text-brown font-medium">${item.node.estimatedCost.subtotalAmount.amount}0</h2>
                                     <RemoveItem merchandiseId = {item.node.merchandiseId} lineId = {item.node.id}/> 
                                 </div>
                             {/each}
-                            <div class="h-26 mb-20">
+                            <div class="h-26 mb-36">
                             </div>
                         </div>
-                        <p class="absolute bottom-14 text-brown font-medium text-lg">Total Price = <b>${cartPrice}0</b></p>
+                        <p class="absolute bottom-20 text-brown font-medium text-lg">Total Price: <b>${cartPrice}0</b></p>
+                        <p class="absolute bottom-14 text-brown font-medium text-md">Shipping: Calculated at Checkout</p>
                     </div>
             {/if}
             {/key}

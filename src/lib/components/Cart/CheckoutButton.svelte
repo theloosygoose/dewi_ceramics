@@ -13,6 +13,6 @@ async function goCheckout() {
 
 <button 
     on:click={() => goCheckout()}
-    class="self-end bg-brown text-white font-bold text-2xl w-full h-fit absolute bottom-2 py-1">
+    class="bg-brown text-white font-bold text-2xl w-full h-fit absolute bottom-0 py-1">
 Checkout
 </button>
