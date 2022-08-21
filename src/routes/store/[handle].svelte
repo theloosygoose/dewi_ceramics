@@ -36,7 +36,7 @@
 </svelte:head>
 
 <div>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 relative mb-[20vh]">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 relative">
         <Carousel {options} >
             {#each singleProduct.images as image }
                 <div class="w-full h-[350px] sm:h-[400px] md:h-[600px] lg:h-screen m-auto"  >
@@ -64,10 +64,13 @@
             {/if}
         </div>
     </div>
-    <div class="flex fle-wrap border-brown border-t-5 w-">
-        {#each reccomendations as product, i}
-            <ProductCard {product} {typesList} {i}/>
-        {/each}
-    </div>
+    <section class="my-10">
+        <h3 class="text-3xl font-bold text-brown tracking-wide ">Similar Products:</h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mx-[5%]">
+            {#each reccomendations as product, i}
+                <ProductCard {product} {typesList} {i}/>
+            {/each}
+        </div>
+    </section>
     <a href="/store/all" class="text-brown text-lg italic font-extrabold hover:text-tan"> Back to Products</a>
 </div>
