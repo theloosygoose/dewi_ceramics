@@ -1,4 +1,4 @@
-import { getProduct, getTypes} from "$lib/utils/shopify";
+import { getProduct, getReccomendedProducts, getTypes} from "$lib/utils/shopify";
 
 export async function GET({params}:{handle:string}){
     const res:any = await getProduct(`${params.handle}`);
@@ -16,6 +16,18 @@ export async function GET({params}:{handle:string}){
         collections: resSingleProduct.collections.edges,
         productType: resSingleProduct.productType
     } 
+
+
+    const resReccomendations = await getReccomendedProducts(singleProduct.id);
+    const reccomendations = await resReccomendations.body.productRecommendations.map((product) => {
+        return{
+            title: product.title,
+            imageSrc: product.images.edges[0].node.transformedSrc,
+            price: product.priceRange.minVariantPrice.amount,
+            handle: product.handle,
+            productType: product.productType
+        }
+    })
 
     const res_types = await getTypes();
     const typesList = await res_types.body.productTypes.edges.map((tag: { node: string; }, i: number) =>{
@@ -35,6 +47,8 @@ export async function GET({params}:{handle:string}){
             body: {
                 singleProduct: await singleProduct,
                 productType: await productType[0],
+                reccomendations: await reccomendations,
+                typesList: await typesList,
             }
         };
     }

@@ -1,14 +1,12 @@
 <script lang="ts">
 export let color:string;
-export let name:string;
+export let name = "  ";
 
-export let height:string;
-export let width:string
 export let text:string;
 export let extras = "";
 </script>
 
 <button 
-    class="h-{height} w-{width} p-1 pr-[0.35rem] text-center ml-2 mb-2 {(color === '#F1DB18' || color === '#f497da') ? 'text-grey' : 'text-tan'} font-bold text-{text} hover:opacity-80 {extras}"
+    class="{(color === '#F1DB18' || color === '#f497da') ? 'text-grey' : 'text-tan'} font-bold text-{text} hover:opacity-80 {extras}"
     style="background-color:{color};"
     on:click>{name}</button>

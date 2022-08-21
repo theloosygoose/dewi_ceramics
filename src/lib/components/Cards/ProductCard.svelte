@@ -13,15 +13,17 @@
    }) 
 </script>
 {#if typeof product != undefined}
-    <a sveltekit:prefetch class="relative bg-product min-w-[30px] min-h-[30px] max-w-[330px] hover:transition-colors" href="/store/{product.handle}">
-        <div in:blur="{{delay:1+(i*200),duration:600, easing:cubicInOut}}" class="overflow-x-hidden">
-            <Tag extras="absolute top-1 right-0 w-[90px]" text="sm" height="fit" width="fit" color={productType[0].color} name={productType[0].name}/>
-            <div class="h-[200px] overflow-hidden justify-center">
-                <img class="h-full w-full object-cover object-center" loading='lazy' srcset="{product.imageSrc}" alt="{product.handle}">
-            </div>
-            <div class="p-1 py-3 flex-col justify-between ml-1">
-                <p class="text-brown text-m font-semibold">{product.title}</p>
-                <p class="text-brown text-2xl font-extrabold tracking-wider">${product.price}0</p>
+    <a sveltekit:prefetch in:blur="{{delay:1+(i*200),duration:600, easing:cubicInOut}}" class="relative overflow-x-hidden bg-slate-400 aspect-w-1 aspect-h-1" href="/store/{product.handle}">
+        <div class="relative z-10">
+            <Tag extras="absolute right-0 w-[20px] h-[20px]" text="lg" color={productType[0].color}/>
+        </div>
+        <div class="h-full">
+            <img class="h-full w-full object-cover object-center" loading='lazy' srcset="{product.imageSrc}" alt="{product.handle}">
+        </div>
+        <div>
+            <div class="flex-col absolute bottom-0 bg-tan justify-between rounded-tr-sm">
+                <p class="text-brown text-xs font-semibold">{product.title}</p>
+                <p class="text-brown text-xs font-extrabold tracking-wider">${product.price}0</p>
             </div>
         </div>
     </a>

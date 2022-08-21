@@ -74,7 +74,7 @@ const tagFilterHandler = (typeName:string, typeColor:string) =>{
 </section>
 <hr class="w-[80%] border-brown border-1 m-auto mb-5"/>
 <section in:fade="{{duration:600, easing:quintInOut}}"
-class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:mx-[5%]">
+class="grid grid-cols-2">
     {#key tagFilterName}
         {#each filteredProducts as product, i}
         <ProductCard {product} {typesList} {i}/>

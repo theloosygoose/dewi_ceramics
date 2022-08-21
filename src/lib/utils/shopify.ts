@@ -284,7 +284,6 @@ export async function getTypes(){
         }
       }
     }
-    
   `,
   variables: {}
   })
@@ -328,5 +327,32 @@ export async function getCollectionItems(handle:string) {
       
       `,
       variables: {handle}
+  })
+}
+
+export async function getReccomendedProducts(productId:string){
+  return postToShopify({
+    query:`
+    query reccomendationsQuery($productId: ID!) {
+      productRecommendations(productId: $productId) {
+        images(first: 1) {
+          edges {
+            node {
+              transformedSrc(maxHeight: 300, preferredContentType: WEBP)
+            }
+          }
+        }
+        title
+        productType
+        handle
+        priceRange {
+          minVariantPrice {
+            amount
+          }
+        }
+      }
+    }
+    `,
+    variables: {productId}
   })
 }
