@@ -84,11 +84,11 @@ import IndexCard from '$lib/components/Cards/IndexCard.svelte';
     
 <section class="flex-col relative z-10 ">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mx-[5%] lg:mx-[10%]">
-        <IndexCard route="/store" color="red" image="store-mobile-img">
+        <IndexCard route="/store" color="bg-red" image="bg-store-mobile-img">
             Shop All
         </IndexCard>
 
-        <IndexCard route="/collections" color="orange" image="maine-collection-desktop-img">
+        <IndexCard route="/collections" color="bg-orange" image="bg-maine-collection-desktop-img">
             Collections
         </IndexCard>
     </div>
