@@ -43,13 +43,13 @@
             Useful links
           </h6>
           <p class="mb-4">
-            <a href="/store" class="text-white">Store</a>
+            <a href="/store" class="text-white">All Products</a>
           </p>
           <p class="mb-4">
             <a href="#!" class="text-white">My Work</a>
           </p>
           <p class="mb-4">
-            <a href="/store/all" class="text-white">All Products</a>
+            <a href="/collections" class="text-white">Collections</a>
           </p>
           <p class="mb-4">
             <a href="/" class="text-white">Home</a>
@@ -57,5 +57,4 @@
         </div>
       </div>
     </div>
-    <a class="absolute right-0 text-sm underline" href="https://github.com/theloosygoose">Website Made by Gusti Rama Henry</a>
   </div>

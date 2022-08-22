@@ -10,9 +10,9 @@
 
 </script>
 
-<section class="relative h-[150px] md:h-[400px] flex justify-center items-center mb-5">
+<section class="relative h-[150px] md:h-[400px] flex justify-center items-center mb-8">
     <img class="h-full w-full object-cover z-0 object-center" src="{collectionDetails.image.transformedSrc}" alt="">
-    <h1 class="absolute text-6xl bg-orange text-tan p-5 tracking-wide font-extrabold">{collectionDetails.title}</h1>
+    <h1 class="absolute text-3xl md:text-6xl bg-green text-tan px-5 py-2 tracking-wide font-extrabold">{collectionDetails.title}</h1>
 </section>
 <section class="flex justify-center items-center w-full">
     <p class="text-brown font-lg ml-4 font-medium max-w-prose self-center">{collectionDetails.description}</p>
@@ -24,3 +24,5 @@ class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:mx-[5%] my-11">
         <ProductCard {product} {typesList} {i}/>
         {/each}
 </section>
+
+<a href="/collections" class="text-underline text-lg text-brown font-bold underline">View All Collections</a>

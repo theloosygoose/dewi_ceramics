@@ -58,7 +58,7 @@
             <div class="ml-4 mt-2 text-brown">
                 <h1 class="text-xl font-bold">Part Of:</h1>
                 {#each singleProduct.collections as collection }
-                <a href="/store/collections/{collection.node.handle}" class="font-medium underline">{collection.node.title} Collection</a>
+                <a href="/collections/{collection.node.handle}" class="font-medium underline">{collection.node.title} Collection</a>
                 {/each}
             </div>
             {/if}
@@ -72,5 +72,5 @@
             {/each}
         </div>
     </section>
-    <a href="/store/all" class="text-brown text-lg italic font-extrabold hover:text-tan"> Back to Products</a>
+    <a href="/store" class="text-brown text-lg italic font-extrabold hover:text-tan"> Back to Products</a>
 </div>

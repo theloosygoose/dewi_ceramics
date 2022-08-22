@@ -1,57 +1,82 @@
-<script lang="ts" context="module">
-
-export async function load({ fetch }){
-    const res = await fetch('/api/collections.json');
-    const collections = await res.json()
-
-
-    return {
-        props: {
-            collections: await collections.collections
-        } 
-    } 
-}
-</script>
 
 <script lang="ts">
-    import { fly } from "svelte/transition";
-    import { quartOut } from "svelte/easing";
-    import CollectionCard from "$lib/components/Cards/CollectionCard.svelte";
+import type { Products, TagType } from "$lib/types";
+
+import ProductCard from "$lib/components/Cards/ProductCard.svelte";
+import Tag from "$lib/components/Tag.svelte";
+
+import { fade, fly } from "svelte/transition"
+import { backInOut, quintInOut } from "svelte/easing";
+
+export let products:Products = [];
+export let typesList:[TagType];
+
+let filteredProducts = products;
+
+$: tagFilterName = 'All pottery';
+$: tagFilterColor = '#47291c'
+$: filterProducts = products;
+
+const tagFilterHandler = (typeName:string, typeColor:string) =>{
+    if (typeName != 'All') {
+        tagFilterName = typeName;
+        tagFilterColor = typeColor;
+        if (typeof products != undefined || typeof filteredProducts != undefined){
+            filteredProducts = products.filter((product => {
+                return product.productType === tagFilterName;
+            }))
+        }
+
+    }
+    else {
+        tagFilterName = 'All Pottery';
+        tagFilterColor = '#47291c';
+        filteredProducts = products;
+    }
+};
 
 
-    export let collections:any;
 </script>
 <svelte:head>
     <meta property="og:type" content="website">
     <meta property="og:url" content="www.dewiceramics.netlify.app/store">
-    <meta property="og:title" content="Dewi Ceramics Store">
-    <meta property="og:description" content="Look at All Dewi Ceramics Products or Browse Collections">
+    <meta property="og:title" content="Dewi Ceramics Shop All">
+    <meta property="og:description" content="Browse the entire Dewi Ceramics Collection">
     <meta property="og:image" content="/icons/logolarge.png">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="www.dewiceramics.netlify.app/store">
-    <meta property="twitter:title" content="Dewi Ceramics Store">
-    <meta property="twitter:description" content="Look at All Dewi Ceramics Products or Browse Collections">
+    <meta property="twitter:title" content="Dewi Ceramics Shop All">
+    <meta property="twitter:description" content="Browse the entire Dewi Ceramics Collection">
     <meta property="twitter:image" content="/icons/logolarge.png">
- </svelte:head>
+</svelte:head>
 
-<div class="overflow-x-hidden overflow-y-hidden">
-    <div class="flex-col">
-        <div class="bg-brown mt-5">
-            <a sveltekit:prefetch href="/store/all" class=" md:mx-[15%] grid grid-cols-2 bg-brown">
-                <div in:fly="{{x:-1000, duration:1000, opacity:1, delay:500, easing:quartOut}}" class="h-full grid grid-rows-2 justify-end items-start my-5 mr-[10%] md:mr-[20%] lg:mt-[20%]">
-                    <h1 class="text-tan text-2xl sm:text-5xl lg:text-6xl font-extrabold tracking-normal leading-[1]">ALL <br> PRODUCTS</h1>
-                    <p class="text-tan text-sm sm:text-lg  font-medium leading-[1]">Click Here to Browse<br>All Products</p>
-                </div>
-                <div in:fly="{{x:1000, duration:1000, opacity:1, delay:500, easing:quartOut}}" class="w-full bg-no-repeat bg-center bg-cover bg-pottery-mobile-img max-h-[200px] sm:max-h-[300px] md:max-h-[400px] lg:max-h-[500px] justify-self-end ">
-                </div>
-            </a>
-        </div>
-        <h1 class="text-center text-lg sm:text-2xl md:text-3xl lg:text-6xl text-brown font-bold tracking-wide underline my-4">COLLECTIONS</h1>
-        <div class="mx-5 mt-5 grid md:grid-cols-3 grid-cols-2 grid-auto-rows-[3fr] gap-4">
-            {#each collections as collection, i}
-            <CollectionCard {collection} />
-            {/each}
-        </div>
+<section class="relative h-[200px] md:h-[600px] flex justify-center items-center mb-5">
+    <img class="h-full w-full object-cover z-0 object-center" src="/images/pottery.webp" alt="">
+    {#key tagFilterName}
+        <h2 
+            class="text-tan font-extrabold tracking-wide w-full px-5 py-3 text-4xl absolute text-center"
+            style="background-color: {tagFilterColor};"
+            in:fly={{y:-100, easing: backInOut, duration:800}}
+        >{tagFilterName}
+        </h2>
+    {/key}
+</section>
+<section class="mb-4 tags mx-[5%]">
+    <div class="text-brown font-bold tracking-normal mt-5 text-xl">search for: <div>
+    <div class="flex-wrap">
+        <Tag extras="px-1 hover:opacity-80" text="lg" color='#47291c' name='All' on:click={() => tagFilterHandler('All', '#DF2228')}/>
+        {#each typesList as tag}
+            <Tag extras="ml-2 px-1 hover:opacity-80" text="lg" color={tag.color} name={tag.name} on:click={() => tagFilterHandler(`${tag.name}`, `${tag.color}`)}/>
+        {/each}
     </div>
-</div>
+</section>
+<hr class="w-[80%] border-brown border-1 m-auto mb-5"/>
+<section in:fade="{{duration:600, easing:quintInOut}}"
+class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mx-[5%]">
+    {#key tagFilterName}
+        {#each filteredProducts as product, i}
+        <ProductCard {product} {typesList} {i}/>
+        {/each}
+    {/key}
+</section>

@@ -11,7 +11,9 @@
     const productType = typesList.filter((type: { name: any; }) => {
         return type.name === product.productType
    }) 
+
 </script>
+
 {#if typeof product != undefined}
     <a sveltekit:prefetch in:blur="{{delay:1+(i*200),duration:600, easing:cubicInOut}}" class="relative overflow-x-hidden bg-slate-400 aspect-w-1 aspect-h-1" href="/store/{product.handle}">
         <div class="relative z-10">
@@ -22,8 +24,8 @@
         </div>
         <div>
             <div class="flex-col absolute bottom-0 w-1/2 bg-tan justify-between rounded-tr-sm">
-                <p class="text-brown text-xs font-semibold">{product.title}</p>
-                <p class="text-brown text-xs font-extrabold tracking-wider">${product.price}0</p>
+                <p class="text-brown text-xs md:text-lg lg:text-2xl font-semibold">{product.title}</p>
+                <p class="text-brown text-xs md:text-lg lg:text-2xl font-extrabold tracking-wider">${product.price}0</p>
             </div>
         </div>
     </a>

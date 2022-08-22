@@ -7,6 +7,6 @@ export let extras = "";
 </script>
 
 <button 
-    class="{(color === '#F1DB18' || color === '#f497da') ? 'text-grey' : 'text-tan'} font-bold text-{text} hover:opacity-80 {extras}"
+    class="{(color === '#F1DB18' || color === '#f497da') ? 'text-grey' : 'text-tan'} font-bold text-{text}  {extras}"
     style="background-color:{color};"
     on:click>{name}</button>

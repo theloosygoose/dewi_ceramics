@@ -45,7 +45,7 @@ export async function GET() {
     //Get All Types that Exist in the Store and Assign each with Color Array
     const res_types = await getTypes();
     const types_list = await res_types.body.productTypes.edges.map((tag: { node: string; }, i: number) =>{
-        const colors = ['#EB6424', '#359C49', '#3569B4', '#F1DB18', '#F497DA', '#58355E'];
+        const colors = ['#df2228','#EB6424', '#359C49', '#3569B4', '#F1DB18', '#F497DA', '#58355E'];
         return {
             name: tag.node,
             color: colors[i]

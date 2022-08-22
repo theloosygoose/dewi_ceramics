@@ -19,18 +19,18 @@
     import { fly,fade } from 'svelte/transition';
     import { onMount } from 'svelte';
     import CollectionCard from '$lib/components/Cards/CollectionCard.svelte';
+import IndexCard from '$lib/components/Cards/IndexCard.svelte';
 
     export let collections:any 
     
     let articleView = false;
+    let viewTimed = false;
     let scroll:number;
     let ready = false;
     onMount(async () => {
         ready = true;
 
     })
-  
-
  </script>
 
  <svelte:head>
@@ -71,7 +71,7 @@
     <p class="text-xl text-brown font-medium tracking-wide">Scroll to Learn More</p>
 </div>
 
-<div class="relative overflow-hidden">
+<div class="relative overflow-hidden my-[10vh]">
     <article class="my-24 relative z-20 overflow-x-hidden" use:viewport on:enterViewport={() => {return articleView = true}} >
         {#if articleView }
         <h2 in:fly="{{x:-100, delay:700, duration:700}}" class="mx-[5%] z-30 relative text-5xl xs:text-6xl md:text-7xl lg:text-8xl text-brown font-bold tracking-normal leading-[1]">Buy Independent, Not Big Business</h2>
@@ -82,16 +82,18 @@
     </article>
 </div>
     
-<section class="flex-col relative z-10">
-    <a sveltekit:prefetch href="/store">
-        <div class="mt-5 lg:bg-store-desktop-img bg-store-mobile-img bg-no-repeat bg-cover bg-center min-h-[500px]">
-            <div class="bg-orange w-fit">
-                <p class="font-extrabold  py-2 px-6 text-5xl tracking-wide text-tan">Store</p>
-            </div>
-        </div>
-    </a>
-    <div class="mx-5 mt-5">
-        <h2 class="mx-auto w-full bg-product text-brown font-extrabold  text-4xl md:text-5xl lg:text-7xl text-center tracking-normal leading-[1]">FEATURED <br> COLLECTIONS</h2>
+<section class="flex-col relative z-10 ">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mx-[5%] lg:mx-[10%]">
+        <IndexCard route="/store" color="red" image="store-mobile-img">
+            Shop All
+        </IndexCard>
+
+        <IndexCard route="/collections" color="orange" image="maine-collection-desktop-img">
+            Collections
+        </IndexCard>
+    </div>
+    <div class="mx-[5%] lg:mx-[20%] mt-5">
+        <h2 class="w-full bg-product text-brown font-extrabold  text-4xl md:text-5xl lg:text-7xl text-center tracking-wide leading-[1]">FEATURED <br> COLLECTIONS</h2>
         <div class="mt-5 grid w-full md:grid-cols-2 grid-cols-1 gap-4 ">
         {#each collections as collection}
             <CollectionCard {collection} />
@@ -102,7 +104,7 @@
         <a sveltekit:prefetch href="/about">
             <div class="mt-5 lg:bg-mywork-desktop-img bg-mywork-mobile-img bg-no-repeat bg-cover bg-center min-h-[500px]">
                 <div class="bg-blue w-fit">
-                    <p class="font-extrabold   py-2 px-6 text-5xl tracking-wide text-tan">About Me</p>
+                    <p class="font-extrabold py-2 px-6 text-5xl tracking-wide text-tan">About Me</p>
                 </div>
             </div>
         </a>
