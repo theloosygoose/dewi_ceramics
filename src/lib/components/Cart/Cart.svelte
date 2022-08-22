@@ -33,7 +33,7 @@ cartItemsStore.subscribe((items) => {
             {#if cartItems.length < 1}
                 <div class="my-4 justify-self-center self-center">
                     <h1 class="text-xl font-bold text-brown leading-normal">HEY! Your Cart is Empty</h1>
-                    <img class="ml-[25%] h-[200px]" src="/sad.svg" alt="c'mon do something meme">
+                    <img class="ml-[25%] h-[200px]" src="/icons/sad.svg" alt="c'mon do something meme">
                     <a on:click="{cartHandler}" href="/store" class="text-brown underline" > Click Me to Look at Some Pots!</a>
                 </div>
             {:else}
