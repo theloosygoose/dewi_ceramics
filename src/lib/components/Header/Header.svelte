@@ -31,7 +31,7 @@ isCartOpenStore.subscribe(isOpen => isCartOpen = isOpen)
         {menuTag}
         </button>
     {/key}
-    <a class="w-48 xs:w-56 pt-1"href="/">
+    <a class="w-48 xs:w-56"href="/">
         <svg viewBox="0 0 1184 117" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M45.6 2.19999C57.44 2.19999 67.7867 4.59999 76.64 9.4C85.6 14.0933 92.48 20.7067 97.28 29.24C102.08 37.7733 104.48 47.5333 104.48 58.52C104.48 69.4 102.027 79.1067 97.12 87.64C92.32 96.1733 85.44 102.893 76.48 107.8C67.6267 112.6 57.3333 115 45.6 115H0.96V2.19999H45.6ZM43.2 87.32C52.3733 87.32 59.5733 84.8133 64.8 79.8C70.0267 74.7867 72.64 67.6933 72.64 58.52C72.64 49.24 70.0267 42.0933 64.8 37.08C59.5733 31.96 52.3733 29.4 43.2 29.4H32.32V87.32H43.2Z" fill="#DF2228"/>
             <path d="M138.776 27.32V45.72H174.776V69.56H138.776V89.88H179.576V115H107.416V2.19999H179.576V27.32H138.776Z" fill="#EB6424"/>
@@ -44,7 +44,7 @@ isCartOpenStore.subscribe(isOpen => isCartOpen = isOpen)
 
 
     {#key isCartOpen}
-        <button class="z-50 tracking-normal font-extrabold text-brown text-lg absolute top-4 right-3 overflow-visible"
+        <button class="z-50 tracking-normal font-extrabold text-brown text-lg absolute top-4.05 right-3 overflow-visible"
         on:click={cartHandler}
         in:fly={{y:-40, duration:500, opacity:0, easing: cubicInOut}}
         out:fly={{y:40, duration:500, opacity:0, easing: cubicInOut}}>

@@ -30,9 +30,6 @@
     <meta property="twitter:title" content="Dewi Ceramics Product {singleProduct.title}">
     <meta property="twitter:description" content="{singleProduct.description}">
     <meta property="twitter:image" content="/icons/logolarge.png">
-
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 </svelte:head>
 
 <div>
