@@ -38,20 +38,27 @@ cartItemsStore.subscribe((items) => {
                 </div>
             {:else}
                 <div class="static">
-                        <div class="flex-col">
+                        <div class="flex-col border-t-brown border mx-5">
                             {#each cartItems as item, i}
-                                <div class="grid grid-cols-4 items-end py-6 border-b-brown border" >
-                                    <img class="rounded" width='50px' src="{item.node.merchandise.product.images.edges[0].node.transformedSrc}" alt="">
-                                    <h1 class="text-lg text-brown font-semibold leading-[1.2]">{item.node.merchandise.product.title}</h1>
-                                    <h2 class="text-right text-brown font-medium">${item.node.estimatedCost.subtotalAmount.amount}0</h2>
-                                    <RemoveItem merchandiseId = {item.node.merchandiseId} lineId = {item.node.id}/> 
+                                <div class="flex border-b-brown border justify-between" >
+                                    <div class="flex items-end my-4">
+                                        <img class="" width='70px' src="{item.node.merchandise.product.images.edges[0].node.transformedSrc}" alt="">
+                                        <h1 class="pl-3 text-lg text-brown font-semibold leading-[1.2]">{item.node.merchandise.product.title}</h1>
+                                    </div>
+                                    <div class="grid grid-cols-1 grid-rows-2 justify-between py-2">
+                                        <h2 class="text-brown font-bold">${item.node.estimatedCost.subtotalAmount.amount}0</h2>
+                                        <RemoveItem merchandiseId = {item.node.merchandiseId} lineId = {item.node.id}/> 
+                                    </div>
                                 </div>
                             {/each}
                             <div class="h-26 mb-36">
                             </div>
                         </div>
-                        <p class="absolute bottom-20 text-brown font-medium text-lg">Total Price: <b>${cartPrice}0</b></p>
-                        <p class="absolute bottom-14 text-brown font-medium text-md">Shipping: Calculated at Checkout</p>
+                        <div class="absolute flex justify-between bottom-20 w-[90%]">
+                            <p class="text-brown font-bold medium text-lg">Total Price:</p>
+                            <p class="text-brown text-lg font-bold">${cartPrice}0</p>
+                        </div>
+                        <p class="absolute bottom-14 text-brown font-medium text-md">Shipping Calculated at Checkout</p>
                     </div>
             {/if}
             {/key}

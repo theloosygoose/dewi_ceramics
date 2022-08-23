@@ -25,7 +25,7 @@ async function removeItem(merchandiseId: string, lineId: string) {
 }
 </script>
 
-<button class="text-red font-semibold py-1 text-[0.70rem] flex justify-center items-center underline"
+<button class="justify-self-end self-end text-red font-semibold py-1 text-[0.70rem] flex justify-center items-center underline"
     on:click={() => {removeItem(merchandiseId, lineId)}}>
     {#if removeLoading === false}
       Remove

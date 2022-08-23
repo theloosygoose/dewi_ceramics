@@ -38,10 +38,10 @@
             <a href="/store" class="text-white">All Products</a>
           </p>
           <p class="mb-4">
-            <a href="#!" class="text-white">My Work</a>
+            <a href="/collections" class="text-white">Collections</a>
           </p>
           <p class="mb-4">
-            <a href="/collections" class="text-white">Collections</a>
+            <a href="/about" class="text-white">About Me</a>
           </p>
           <p class="mb-4">
             <a href="/" class="text-white">Home</a>
