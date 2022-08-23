@@ -13,19 +13,19 @@ isMenuOpenStore.subscribe(isOpen => isMenuOpen = isOpen)
         class="z-50 flex justify-center align-center w-full h-fit fixed overflow-hidden bg-tan drop-shadow-md">
         <ul in:fade="{{duration:300, delay:400}}" out:fade="{{duration:200}}"
         class="text-brown">
-            <li class="pt-5 pb-5 text-center">
+            <li class="pt-5 pb-5 text-center hover:scale-[1.05] transition ease-in-out ">
                 <a sveltekit:prefetch class="text-brown font-extrabold tracking-normal text-2xl" on:click="{menuHandler}" href="/">Home</a>
             </li>
-            <li class="pb-5 text-center">
+            <li class="pb-5 text-center hover:scale-[1.05] transition ease-in-out ">
                 <a sveltekit:prefetch class="text-brown font-extrabold tracking-normal text-2xl" on:click="{menuHandler}" href="/store">All Pottery</a>
             </li>
-            <li class="pb-5 text-center">
+            <li class="pb-5 text-center hover:scale-[1.05] transition ease-in-out ">
                 <a sveltekit:prefetch class="text-brown font-extrabold tracking-normal text-2xl" on:click="{menuHandler}" href="/collections">Collections</a>
             </li>
-            <li class="pb-5 text-center">
+            <li class="pb-5 text-center hover:scale-[1.05] transition ease-in-out ">
                 <a sveltekit:prefetch class="text-brown font-extrabold tracking-normal text-2xl" on:click="{menuHandler}" href="/about">About Me</a>
             </li>
-            <li class="pb-10 text-center">
+            <li class="pb-10 text-center hover:scale-[1.05] transition ease-in-out ">
                 <a sveltekit:prefetch class="text-brown font-extrabold tracking-normal text-2xl" on:click="{menuHandler}" href="https://www.instagram.com/dewi.ceramics/" target="_blank">Instagram</a>
             </li>
         </ul>

@@ -74,7 +74,7 @@ import IndexCard from '$lib/components/Cards/IndexCard.svelte';
 <div class="relative overflow-hidden my-[10vh]">
     <article class="my-24 relative z-20 overflow-x-hidden" use:viewport on:enterViewport={() => {return articleView = true}} >
         {#if articleView }
-        <h2 in:fly="{{x:-100, delay:700, duration:700}}" class="mx-[5%] z-30 relative text-5xl xs:text-6xl md:text-7xl lg:text-8xl text-brown font-bold tracking-normal leading-[1]">Buy Independent, Not Big Business</h2>
+        <h2 in:fly="{{x:-100, delay:400, duration:700}}" class="mx-[5%] z-30 relative text-5xl xs:text-6xl md:text-7xl lg:text-8xl text-brown font-bold tracking-normal leading-[1]">Buy Independent, Not Big Business</h2>
         <p  in:fly="{{x:100,delay:1200,duration:700}}" class="mx-[5%] z-30 relative text-xl text-brown font-medium tracking-wide mt-2">I'm an independent ceramist making fun mugs, bowls, teacups, teapots, vases, and more!</p>
         {:else}
             <div class="h-[40vh]"></div>

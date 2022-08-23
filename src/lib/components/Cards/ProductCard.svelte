@@ -15,7 +15,7 @@
 </script>
 
 {#if typeof product != undefined}
-    <a sveltekit:prefetch in:blur="{{delay:1+(i*200),duration:600, easing:cubicInOut}}" class="relative overflow-x-hidden bg-slate-400 aspect-w-1 aspect-h-1" href="/store/{product.handle}">
+    <a sveltekit:prefetch in:blur="{{delay:1+(i*200),duration:600, easing:cubicInOut}}" class="drop-shadow-sm relative overflow-x-hidden bg-slate-400 aspect-w-1 aspect-h-1 hover:scale-[1.05] transition ease-in-out " href="/store/{product.handle}">
         <div class="relative z-10">
             <Tag extras="absolute right-0 h-[25px] w-[25px] " text="lg" color={productType[0].color}/>
         </div>
