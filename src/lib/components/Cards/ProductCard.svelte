@@ -30,7 +30,7 @@
             <img class="h-full w-full object-cover object-center" loading='lazy' srcset="{product.imageSrc}" alt="{product.handle}">
         </div>
         {#if hoverState == false}
-        <div transition:blur={{delay:100, easing:cubicInOut}} class="drop-shadow-2xl">
+        <div transition:blur={{delay:200, easing:cubicInOut}} class="drop-shadow-2xl">
             <div class="flex-col absolute bottom-0 w-1/2 bg-tan justify-between">
                 <h4 class="text-brown text-xs md:text-m lg:text-2xl font-semibold leading-6">{product.title}</h4>
                 <p class="text-brown text-xs md:text-m lg:text-2xl font-extrabold tracking-wider">${product.price}0</p>
