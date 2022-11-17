@@ -21,8 +21,8 @@
             localStorage.setItem('checkoutUrl', JSON.stringify((await newCart).checkoutUrl));
             localStorage.setItem('cartCreatedAt', JSON.stringify(Date.now()));
 
-        } else if (currentDate - parseInt(JSON.parse(localStorage.getItem('cartCreatedAt') || '')) > 1000 * 60 * 60 * 24 * 7 || localStorage.getItem('cartCreatedAt') === undefined) {
-            localStorage.clear()
+        } else if (currentDate - parseInt(localStorage.getItem('cartCreatedAt') || '') > 1000 * 60 * 60 * 24 * 7 || localStorage.getItem('cartCreatedAt') === null) {
+            localStorage.clear();
             const newCart = callCreateCart();
             localStorage.setItem('cartId',JSON.stringify((await newCart).cartId));
             localStorage.setItem('checkoutUrl', JSON.stringify((await newCart).checkoutUrl));

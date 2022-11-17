@@ -16,7 +16,7 @@
 <script lang="ts">
     import viewport from '$lib/actions/useViewportAction';
 
-    import { fly,fade } from 'svelte/transition';
+    import { fly } from 'svelte/transition';
     import { onMount } from 'svelte';
     import CollectionCard from '$lib/components/Cards/CollectionCard.svelte';
 import IndexCard from '$lib/components/Cards/IndexCard.svelte';
